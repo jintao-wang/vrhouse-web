@@ -357,23 +357,23 @@ const BottomBar = ({
           </div>
           <div className="describe">项目总览</div>
         </IconSC>
-        {/*<IconSC*/}
-        {/*  styleSC={style}*/}
-        {/*  active={activeMenu === 1}*/}
-        {/*  onClick={() => {*/}
-        {/*    setGroupTwoState(false);*/}
-        {/*    setGroupOneState(false);*/}
-        {/*    setMoreState(false);*/}
-        {/*    setThumbnailState('hidden');*/}
-        {/*    setActiveMenu(1);*/}
-        {/*    setSandTableState(true);*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  <div>*/}
-        {/*    <i className="icon-projectModel" />*/}
-        {/*  </div>*/}
-        {/*  <div className="describe">项目沙盘</div>*/}
-        {/*</IconSC>*/}
+        {/* <IconSC */}
+        {/*  styleSC={style} */}
+        {/*  active={activeMenu === 1} */}
+        {/*  onClick={() => { */}
+        {/*    setGroupTwoState(false); */}
+        {/*    setGroupOneState(false); */}
+        {/*    setMoreState(false); */}
+        {/*    setThumbnailState('hidden'); */}
+        {/*    setActiveMenu(1); */}
+        {/*    setSandTableState(true); */}
+        {/*  }} */}
+        {/* > */}
+        {/*  <div> */}
+        {/*    <i className="icon-projectModel" /> */}
+        {/*  </div> */}
+        {/*  <div className="describe">项目沙盘</div> */}
+        {/* </IconSC> */}
         <IconSC
           ref={(e) => iconRef.current[2] = e}
           styleSC={style}

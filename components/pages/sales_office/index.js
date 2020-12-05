@@ -66,7 +66,7 @@ const Slide3DSC = styled('div', ['aniTrigger'])`
 `;
 
 const SalesOffice = () => {
-  const [vrContainerRef, setVrContainerRef] = useState(useRef(null));
+  const [loadAvailable, setLoadAvailable] = useState(false);
   const [activePanner, setActivePanner] = useState('3D');
   // panorama, floorPlan, 3D,
   const [viewState, setViewState] = useState('panorama');
@@ -76,6 +76,7 @@ const SalesOffice = () => {
   const [sandTableState, setSandTableState] = useState(false);
   const [isSlide3D, setSlide3D] = useState(false);
   const [isFocus, setFocus] = useState(false);
+  const vrContainerRef = useRef(null);
 
   const onLoad = () => {
     console.log('start loaded');
@@ -87,6 +88,7 @@ const SalesOffice = () => {
   };
 
   const [viewDataModel, currentHotId, loadState, isFirstLoad, loadPercent] = useLoadHouse({
+    loadAvailable,
     mainContainer: vrContainerRef.current,
     setViewState,
     setActivePanner,
@@ -97,12 +99,12 @@ const SalesOffice = () => {
       packageId: activePackage.packageId,
       domain: activePackage.domain || activeGroup.defaultDomain,
       // defaultHotSpot: '8mtLFsyd',
-      defaultRoom: '阳台',
+      // defaultRoom: '阳台',
     }),
   });
 
   useEffect(() => {
-    setVrContainerRef({ ...vrContainerRef });
+    setLoadAvailable(true);
   }, []);
 
   const handleTitleChange = (bool) => {
@@ -112,10 +114,10 @@ const SalesOffice = () => {
   return (
     <ContainerSC>
       <VRContainerSC ref={vrContainerRef} />
-      {/*<SandTable*/}
-      {/*  visible={sandTableState}*/}
-      {/*  recommendList={RecommendList}*/}
-      {/*/>*/}
+      {/* <SandTable */}
+      {/*  visible={sandTableState} */}
+      {/*  recommendList={RecommendList} */}
+      {/* /> */}
       <GlobalLoading
         visible={loadState === 'loadStart'}
         url={`https://${activePackage.domain || activeGroup.defaultDomain}${activePackage.packageId}/CoverImage/Cover.jpg`}

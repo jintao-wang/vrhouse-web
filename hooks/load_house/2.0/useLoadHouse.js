@@ -4,6 +4,7 @@ import Resource from '../../../methods/resource';
 import VRHouse from '../../../util/vrHouse';
 
 const useLoadHouse = ({
+  loadAvailable,
   mainContainer,
   setViewState,
   setActivePanner,
@@ -21,13 +22,17 @@ const useLoadHouse = ({
   const [loadPercent, setLoadPercent] = useState(0);
 
   useEffect(() => {
+    console.log(111)
     document.addEventListener('LoadingProgress', (event) => {
       setLoadPercent(Math.floor(event.progress * 100));
     }, false);
+    return () => {
+      console.log(222)
+    }
   }, []);
 
   useEffect(() => {
-    if (!mainContainer) return;
+    if (!loadAvailable) return;
     vrHouse.current = new VRHouse(houseInfo.packageId, houseInfo.domain);
     setLoadState('loadStart');
     // eslint-disable-next-line no-unused-expressions
@@ -38,7 +43,7 @@ const useLoadHouse = ({
       HouseViewer.BaseAPI.initNameConvert(NameConverter);
       initBaseView(viewDataString, editDataString);
     });
-  }, [mainContainer, houseInfo.packageId, houseInfo.domain]);
+  }, [loadAvailable, houseInfo.packageId, houseInfo.domain]);
 
   const getViewData = async () => {
     const viewDataPromise = fetch(vrHouse.current.getViewDataUrl());
