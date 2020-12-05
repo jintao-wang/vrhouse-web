@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="24px" viewBox="0 0 18 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>缩小</title>
+    <defs>
+        <linearGradient x1="29.0354678%" y1="28.5809265%" x2="106.411682%" y2="105.958086%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.816979895" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.299032998" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="构家方案" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="初始界面" transform="translate(-334.000000, -429.000000)" stroke-width="2">
+            <g id="编组-2" transform="translate(323.000000, 229.000000)">
+                <g id="缩小" transform="translate(20.000000, 212.000000) rotate(-180.000000) translate(-20.000000, -212.000000) translate(12.000000, 202.000000)">
+                    <polyline id="矩形备份" stroke="url(#linearGradient-1)" transform="translate(8.000000, 7.260870) rotate(-315.000000) translate(-8.000000, -7.260870) " points="13 2.26086957 11.9130435 11.173913 3 12.2608696"></polyline>
+                    <polyline id="矩形备份-2" stroke="url(#linearGradient-2)" transform="translate(8.000000, 12.739130) rotate(-315.000000) translate(-8.000000, -12.739130) " points="13 7.73913043 11.9130435 16.6521739 3 17.7391304"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>量尺</title>
+    <g id="构家方案" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="初始界面" transform="translate(-332.000000, -318.000000)" stroke="#FFFFFF" stroke-width="2">
+            <g id="编组-2" transform="translate(323.000000, 229.000000)">
+                <g id="量尺" transform="translate(11.000000, 91.000000)">
+                    <line x1="2.01357143" y1="10.673" x2="4.15" y2="12.8094286" id="Stroke-1"></line>
+                    <line x1="4.21228571" y1="8.47428571" x2="7.00228571" y2="11.2642857" id="Stroke-3"></line>
+                    <line x1="6.35128571" y1="6.33528571" x2="8.48771429" y2="8.47171429" id="Stroke-4"></line>
+                    <line x1="8.46064286" y1="4.22557143" x2="11.2506429" y2="7.01557143" id="Stroke-5"></line>
+                    <line x1="10.4810714" y1="2.2055" x2="12.6175" y2="4.34192857" id="Stroke-6"></line>
+                    <polygon id="Stroke-7" points="7.4255 19.5202857 0.296214286 12.391 12.3905 0.296 19.5205 7.42528571"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

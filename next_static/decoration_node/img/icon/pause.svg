@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>播放暂停</title>
+    <g id="构家方案" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="关闭icon状态" transform="translate(-328.000000, -236.000000)">
+            <g id="播放暂停" transform="translate(328.000000, 236.000000)">
+                <rect id="矩形" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="32" height="32"></rect>
+                <g id="编组备份-2" transform="translate(6.000000, 7.000000)" stroke="#FFFFFF" stroke-width="2">
+                    <g id="编组">
+                        <path d="M18.6553875,9.5 C18.6553875,14.556375 14.5561375,18.655625 9.50055417,18.655625 C4.4433875,18.655625 0.344929167,14.556375 0.344929167,9.5 C0.344929167,4.443625 4.4433875,0.344375 9.50055417,0.344375 C14.5561375,0.344375 18.6553875,4.443625 18.6553875,9.5 Z" id="Stroke-2"></path>
+                        <line x1="7" y1="7" x2="7" y2="12" id="直线-3" stroke-linecap="round" stroke-linejoin="round"></line>
+                        <line x1="12" y1="7" x2="12" y2="12" id="直线-3备份" stroke-linecap="round" stroke-linejoin="round"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
