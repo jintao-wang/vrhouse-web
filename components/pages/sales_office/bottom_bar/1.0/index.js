@@ -196,7 +196,7 @@ const BottomBar = ({
     if (loadState === 'loadEnd') {
       setGroupOneState(false);
       setGroupTwoState(false);
-      setThumbnailState('prompt');
+      setThumbnailState('visible');
     }
   }, [loadState]);
 

@@ -56,11 +56,13 @@ const RowScroll = ({
   const listsInfoRef = useRef([]);
 
   useEffect(() => {
-    setActiveIndex(activeIndex);
-    setActiveCenterNew(activeIndex);
-    if (activeIndex === -1) {
-      setActiveCenterNew(0);
-    }
+    setTimeout(() => {
+      setActiveIndex(activeIndex);
+      setActiveCenterNew(activeIndex);
+      if (activeIndex === -1) {
+        setActiveCenterNew(0);
+      }
+    });
   }, [activeIndex]);
 
   useEffect(() => {
