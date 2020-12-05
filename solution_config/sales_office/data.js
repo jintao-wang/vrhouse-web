@@ -177,22 +177,23 @@ export const Slide3DInfo = [
   {
     component: 'Introduction',
     content: {
-      title: '楼盘信息',
+      title: '基本介绍',
       params: [
         {
-          均价: '10200元/平',
+          地上建筑面积: '96,894.23 平方米',
         },
         {
-          交付: '待定',
+          低区建筑面积: '26,125.03平方米',
         },
         {
-          开盘: '待定',
+          楼层: '46层',
+          楼高: '220米',
         },
         {
-          楼盘地址: '南昌市工业三路与文化中心南路的交汇处',
+          车位数: '低区独立使用100个',
         },
         {
-          开发商: '南昌金祥房地产开发有限公司',
+          竣工时间: '2019年10月，低区交付时间为2020年6月',
         },
       ],
     },
@@ -293,51 +294,40 @@ export const GroupInfo = [
 export const GroupMap = new Map()
   .set(GroupInfo[0], [
     {
-      packageId: '0c2c2005-d174-4471-a271-ecdb945698d5',
-      packageName: '馆外航拍图',
-      voice: [
-        '//webresource.123kanfang.com/media/12997.mp3',
-        '//webresource.123kanfang.com/media/salesOffice.mp3',
-      ],
+      packageId: 'lyx_46bbc1085e9f4f0485d1e14182a80a9f',
+      packageName: '航拍夜景',
+      voice: [],
     },
     {
-      packageId: '6a0a7d6f-8e6d-47fc-9c37-36e1f280e516',
-      packageName: '商业配套',
-      voice: [
-        '//webresource.123kanfang.com/media/12997.mp3',
-        '//webresource.123kanfang.com/media/salesOffice.mp3',
-      ],
+      packageId: 'lyx_4c93415ade5a43348cdcece5885627af',
+      packageName: '航拍日景',
+      voice: [],
     },
     {
-      packageId: 'fe3fed6d-bc90-4f5e-8f4c-cace25586b89',
-      packageName: '小区环境',
-      voice: ['//webresource.123kanfang.com/media/11507.mp3'],
-    },
-    {
-      packageId: '67164282-9bea-4390-8865-5d7145375292',
-      packageName: '小区设施',
+      packageId: 'lyx_912baa7f0c15482caac0b086cf74900d',
+      packageName: '网红连廊',
       voice: [],
     },
   ])
   .set(GroupInfo[1], [
     {
-      packageId: '166ababb-c98d-4e58-a2a4-d25e8a632690_deco_Modern_57',
-      packageName: '岱云 三房两厅两卫',
-      voice: ['//webresource.123kanfang.com/media/11507.mp3'],
+      packageId: 'lyx_a3e8fb5c78e44059939a4b066ae69f29',
+      packageName: '大堂',
+      voice: [],
     },
     {
-      packageId: 'fafd3129-25ea-4958-9a97-de8715628cab_deco_Japanese_23',
-      packageName: '沐阳 三房两厅两卫',
-      voice: ['//webresource.123kanfang.com/media/11508.mp3'],
+      packageId: 'lyx_3e2b533b460048169dbb50eda51f77dc',
+      packageName: '车库',
+      voice: [],
     },
     {
-      packageId: 'cd1700c1-9b63-4f5d-ac91-5167928c3165_deco_NewChinese_18',
-      packageName: '安泰 四房两厅两卫',
-      voice: ['//webresource.123kanfang.com/media/11507.mp3'],
+      packageId: 'lyx_3cf0455e3c6142caa65348d0d9d182a7',
+      packageName: '八楼电梯间',
+      voice: [],
     },
     {
-      packageId: 'e1b041d8-9244-4aba-b71d-b68deaf221e8_deco_Modern_17',
-      packageName: '朗悦 三房两厅一卫',
-      voice: ['//webresource.123kanfang.com/media/11508.mp3'],
+      packageId: 'lyx_6563d302befd470ea47dab6fc3000e83',
+      packageName: '八楼',
+      voice: [],
     },
   ]);

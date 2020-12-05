@@ -112,10 +112,10 @@ const SalesOffice = () => {
   return (
     <ContainerSC>
       <VRContainerSC ref={vrContainerRef} />
-      <SandTable
-        visible={sandTableState}
-        recommendList={RecommendList}
-      />
+      {/*<SandTable*/}
+      {/*  visible={sandTableState}*/}
+      {/*  recommendList={RecommendList}*/}
+      {/*/>*/}
       <GlobalLoading
         visible={loadState === 'loadStart'}
         url={`https://${activePackage.domain || activeGroup.defaultDomain}${activePackage.packageId}/CoverImage/Cover.jpg`}

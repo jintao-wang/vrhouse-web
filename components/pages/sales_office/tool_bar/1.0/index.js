@@ -159,9 +159,9 @@ const ToolBar = ({
         <ToolItemSC visible onClick={() => handleTour(!tourActive)} active={tourActive}>
           <i className="icon-tour" />
         </ToolItemSC>
-        <PlaySC visible onClick={() => handlePlayMusic(!musicState)} active={musicState}>
-          <i className="icon-music" />
-        </PlaySC>
+        {/*<PlaySC visible onClick={() => handlePlayMusic(!musicState)} active={musicState}>*/}
+        {/*  <i className="icon-music" />*/}
+        {/*</PlaySC>*/}
         <ShareSC visible onClick={() => handleShare()}>
           <i className="icon-share" />
         </ShareSC>
