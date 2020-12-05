@@ -76,7 +76,6 @@ const SalesOffice = () => {
   const [sandTableState, setSandTableState] = useState(false);
   const [isSlide3D, setSlide3D] = useState(false);
   const [isFocus, setFocus] = useState(false);
-  // const [vrFocusState] = vrFocusStore.useModel(); // 测试全局状态
 
   const onLoad = () => {
     console.log('start loaded');
@@ -87,7 +86,7 @@ const SalesOffice = () => {
     // eslint-disable-next-line no-unused-expressions
   };
 
-  const [viewDataModel, currentHotInfo, loadState, isFirstLoad, loadPercent] = useLoadHouse({
+  const [viewDataModel, currentHotId, loadState, isFirstLoad, loadPercent] = useLoadHouse({
     mainContainer: vrContainerRef.current,
     setViewState,
     setActivePanner,
@@ -150,7 +149,7 @@ const SalesOffice = () => {
                 top: '30px',
                 left: '12px',
               }}
-              hotSpotInfo={currentHotInfo}
+              hotSpotInfo={viewDataModel?.getRoomByHotSpotId(currentHotId)}
               colorTheme={ColorTheme}
             />
           )
@@ -193,7 +192,7 @@ const SalesOffice = () => {
         }
         <BottomBar
           isChangingPanorama={isChangingPanorama}
-          currentHotSpotId={currentHotInfo?.HotSpotIds[0]}
+          currentHotSpotId={currentHotId}
           viewDataModel={viewDataModel}
           group={activeGroup}
           loadState={loadState}

@@ -2,14 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { getUrlParameter, isMobile } from '../../../../../util/common';
-import Animation from '../../../../common/animation/2.0';
 import ThumbnailBar from '../../thumbnail_bar/1.0';
 import Thumbnail from '../../../../../models/thumbnail';
 import { GroupInfo, GroupMap } from '../../../../../solution_config/sales_office/data';
-import TriangleIcon from '../../triangle_icon/1.0/triangleIcon';
 import ProjectGroupBar from '../../group_list_bar/1.0';
 import MoreBar from '../../more_bar/1.0';
-import TMapReact from '../../../../common/TMap/1.0';
 
 const fadeIn = keyframes`
   0% {

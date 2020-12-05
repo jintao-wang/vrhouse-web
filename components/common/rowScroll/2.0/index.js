@@ -39,6 +39,7 @@ const UlSC = styled('ul', ['styleSC'])`
      list-style: none;
      display: inline-block;
      margin: ${(props) => props.styleSC.liMargin};
+     cursor: pointer;
     }
 `;
 

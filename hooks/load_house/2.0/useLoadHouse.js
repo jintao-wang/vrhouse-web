@@ -13,7 +13,7 @@ const useLoadHouse = ({
   houseInfo,
 }) => {
   const [loadState, setLoadState] = useState('loadStart');
-  const currentHotInfo = useRef(null);
+  const currentHotId = useRef(null);
   const viewDataModel = useRef(null);
   const isFirstLoad = useRef(true);
   const activePackageId = useRef(null);
@@ -119,7 +119,7 @@ const useLoadHouse = ({
       },
       switchPanoramaCallback: (state, hotSpotId) => {
         if (state === 'animationBegin') {
-          currentHotInfo.current = viewDataModel.current.getRoomByHotSpotId(hotSpotId);
+          currentHotId.current = hotSpotId;
           setChangingPanorama(true);
         }
         if (state === 'animationEnd') {
@@ -143,7 +143,7 @@ const useLoadHouse = ({
       if (onLoaded) onLoaded();
       viewDataModel.current = ViewDataModel;
       // eslint-disable-next-line max-len
-      currentHotInfo.current = ViewDataModel.getRoomByHotSpotId(ViewDataModel.getDefaultHotSpotId());
+      currentHotId.current = ViewDataModel.getDefaultHotSpotId();
       activePackageId.current = vrHouse.current.getHouseId();
       setTimeout(() => {
         isFirstLoad.current = false;
@@ -172,7 +172,7 @@ const useLoadHouse = ({
   };
 
   // eslint-disable-next-line max-len
-  return [viewDataModel.current, currentHotInfo.current, loadState, isFirstLoad.current, loadPercent];
+  return [viewDataModel.current, currentHotId.current, loadState, isFirstLoad.current, loadPercent];
 };
 
 export default useLoadHouse;

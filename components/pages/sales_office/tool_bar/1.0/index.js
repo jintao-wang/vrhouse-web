@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import usePlayMusic from '../../../../../hooks/usePlayMusic';
-import { getUrlParameter } from '../../../../../util/common';
-import { BackgroundTheme } from '../../../../../styles/sales-office-icon/common';
+import { getUrlParameter, isMobile } from '../../../../../util/common';
+import { BackgroundTheme, ColorTheme } from '../../../../../styles/sales-office-icon/common';
 import GlobalClose from '../../../../common/global-close/2.0';
 import Message from '../../../../common/message/1.0';
 import { vrFocusStore } from '../../../../../store';
@@ -19,7 +19,7 @@ const ContainerSC = styled('div', ['styleSC', 'positionSC'])`
   ${(props) => props.positionSC};
 `;
 
-const ToolItemSC = styled('div', ['styleSC', 'visible'])`
+const ToolItemSC = styled('div', ['styleSC', 'visible', 'active'])`
   width: 20px;
   height: ${(props) => (props.visible ? '20px' : 0)};
   opacity: ${(props) => (props.visible ? 1 : 0)};
@@ -27,17 +27,23 @@ const ToolItemSC = styled('div', ['styleSC', 'visible'])`
   justify-content: center;
   align-items: center;
   margin: ${(props) => (props.visible ? '8px 0' : '0')};
-  color: white;
+  color: ${(props) => (props.active ? ColorTheme : 'white')};
   transition: height .4s;
   font-size: 20px;
 `;
 
 const ShareSC = styled(ToolItemSC)`
-  font-size: 18px;
+  font-size: 20px;
 `;
 
 const PlaySC = styled(ToolItemSC)`
   font-size: 22px;
+`;
+
+const VrTour = styled(ToolItemSC)`
+   @media(min-width: 1026px) {
+      display: none;
+    }
 `;
 
 const ShortSC = styled('div', ['styleSC', 'isShort'])`
@@ -150,15 +156,18 @@ const ToolBar = ({
     >
       <ContainerSC styleSC={style} positionSC={positionSC}>
         <Message visible={isMessage} />
-        <PlaySC visible onClick={() => handlePlayMusic(!musicState)}>
-          <i className={musicState ? 'icon-musicStop' : 'icon-musicPlay'} />
+        <ToolItemSC visible onClick={() => handleTour(!tourActive)} active={tourActive}>
+          <i className="icon-tour" />
+        </ToolItemSC>
+        <PlaySC visible onClick={() => handlePlayMusic(!musicState)} active={musicState}>
+          <i className="icon-music" />
         </PlaySC>
         <ShareSC visible onClick={() => handleShare()}>
           <i className="icon-share" />
         </ShareSC>
-        <ToolItemSC visible onClick={handleVr}>
+        <VrTour visible onClick={handleVr}>
           <i className="icon-vr" />
-        </ToolItemSC>
+        </VrTour>
         {/* <ShortSC onClick={() => handleShort(!isShort)} isShort={isShort}> */}
         {/* <i className="icon-short" /> */}
         {/* </ShortSC> */}
