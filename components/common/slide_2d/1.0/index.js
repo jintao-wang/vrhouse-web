@@ -60,6 +60,7 @@ const PointSmallSC = styled('div', ['active'])`
   background: ${(props) => (props.active ? 'rgba(251,186,83,1)' : 'rgba(187,187,187,1)')};
   margin-left: 5px;
   margin-right: 5px;
+  cursor: pointer;
 `;
 
 const Slide2D = ({
@@ -220,7 +221,13 @@ const Slide2D = ({
       <PointListSC>
         {
           slideList.map((item, index) => (
-            <PointSmallSC active={index === _activeIndex} />
+            <PointSmallSC
+              active={index === _activeIndex}
+              onClick={() => {
+                setActiveIndex(index);
+                setActiveCenterNew(index);
+              }}
+            />
           ))
         }
       </PointListSC>

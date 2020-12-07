@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useState, useEffect, useRef, useCallback} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import TouchCommon from '../../touch_common/TouchCommon';
@@ -391,37 +391,7 @@ const Slide3D = ({
           </Carousel>
         </SceneSC>
       </TouchCommon>
-      {/* { */}
-      {/*  viewBigger && ( */}
-      {/*    <PictureViewBigSC> */}
-      {/*      <GlobalClose */}
-      {/*        onClose={() => { setViewBigger(false); }} */}
-      {/*      > */}
-      {/*        <ViewBigSC height={280}> */}
-      {/*          <Slide2D */}
-      {/*            activeIndex={viewActiveIndex} */}
-      {/*            slideList={Slide3DInfo[2].content} */}
-      {/*            onChange={(item, index, callback) => { */}
-      {/*              // if (index === viewActiveIndex) return; */}
-      {/*              console.log(viewActiveIndex); */}
-      {/*              setViewActiveIndex(index); */}
-      {/*              callback(); */}
-      {/*            }} */}
-      {/*          > */}
-      {/*            <ViewBigItemRender /> */}
-      {/*          </Slide2D> */}
-      {/*          <LeftSC onClick={() => handleViewChange(-1)}> */}
-      {/*            <i className="icon-pointTop" /> */}
-      {/*          </LeftSC> */}
-      {/*          <RightSC onClick={() => handleViewChange(1)}> */}
-      {/*            <i className="icon-pointTop" /> */}
-      {/*          </RightSC> */}
-      {/*        </ViewBigSC> */}
-      {/*      </GlobalClose> */}
-      {/*    </PictureViewBigSC> */}
-      {/*  ) */}
-      {/* } */}
-      {
+       {
         viewBigger && (
           <ZTop>
             <PictureViewBigSC>
@@ -434,7 +404,6 @@ const Slide3D = ({
                     slideList={Slide3DInfo[2].content}
                     onChange={(item, index, callback) => {
                       // if (index === viewActiveIndex) return;
-                      console.log(viewActiveIndex);
                       setViewActiveIndex(index);
                       callback();
                     }}
