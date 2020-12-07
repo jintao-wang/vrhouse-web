@@ -6,7 +6,10 @@ const ZTop = ({ children }) => {
   useEffect(() => {
     const container = document.createElement('div');
     document.body.append(container);
-    ReactDOM.render(children, container);
+    ReactDOM.render(
+      React.cloneElement(children),
+      container,
+    );
     return () => {
       ReactDOM.unmountComponentAtNode(container);
       document.body.removeChild(container);

@@ -8,7 +8,7 @@ const GlobalClose = ({
 
   useEffect(() => {
     const closeFunc = (e) => {
-      if (aimRef.current.contains(e.target)) return;
+      if (aimRef.current && aimRef.current.contains(e.target)) return;
       onClose();
       if (stopPropagation) {
         e.stopPropagation();

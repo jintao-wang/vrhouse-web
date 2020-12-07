@@ -205,68 +205,58 @@ export const Slide3DInfo = [
       url: 'https://vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/video/ai.mp4',
     },
   },
-  // {
-  //   component: 'PictureDisplay',
-  //   content: [
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de1.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de2.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de3.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de4.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de1.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de2.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de3.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de4.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de1.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de2.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de3.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de4.jpg',
-  //     },
-  //   ],
-  // },
   {
-    component: 'MapInfo',
-    content: {
-      title: '南昌市工业三路与文化中心南路交汇处',
-      addressPoint: {
-        x: 28.680081,
-        y: 115.818690,
+    component: 'PictureView',
+    content: [
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de1.jpg',
       },
-    },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de2.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de3.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de4.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de1.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de2.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de3.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de4.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de1.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de2.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de3.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de4.jpg',
+      },
+    ],
   },
 ];
 
