@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 const ZTop = ({ children }) => {
+  const container = useRef(document.createElement('div'));
   useEffect(() => {
-    const container = document.createElement('div');
-    document.body.append(container);
-    ReactDOM.render(children, container);
+    document.body.append(container.current);
     return () => {
-      ReactDOM.unmountComponentAtNode(container);
-      document.body.removeChild(container);
+      ReactDOM.unmountComponentAtNode(container.current);
+      document.body.removeChild(container.current);
     };
   }, []);
 
-  return null;
+  // eslint-disable-next-line react/no-render-return-value
+  return ReactDOM.render(children, container.current);
 };
 
 ZTop.propTypes = {

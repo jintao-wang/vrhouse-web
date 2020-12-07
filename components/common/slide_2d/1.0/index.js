@@ -60,6 +60,7 @@ const PointSmallSC = styled('div', ['active'])`
   background: ${(props) => (props.active ? 'rgba(251,186,83,1)' : 'rgba(187,187,187,1)')};
   margin-left: 5px;
   margin-right: 5px;
+  cursor: pointer;
 `;
 
 const Slide2D = ({
@@ -69,12 +70,13 @@ const Slide2D = ({
   onChange,
   rowItemInfo,
   activeIndex,
+  defaultIndex,
 }) => {
   const style = {
     ...styleSC,
   };
 
-  const [_activeIndex, setActiveIndex] = useState(activeIndex);
+  const [_activeIndex, setActiveIndex] = useState(activeIndex ?? defaultIndex ?? 0);
   const [scrollLength, setScrollLength] = useState(null);
   const containerRef = useRef(null);
   const ulRef = useRef(null);
@@ -84,16 +86,17 @@ const Slide2D = ({
   const [scale, setScale] = useState(0.95);
 
   useEffect(() => {
+    if (typeof activeIndex !== 'number') return;
     setActiveIndex(activeIndex);
-    setActiveCenterNew(activeIndex);
-    if (activeIndex === -1) {
-      setActiveCenterNew(0);
-    }
+    setTimeout(() => {
+      setActiveCenterNew(activeIndex);
+    });
   }, [activeIndex]);
 
   useEffect(() => {
+    if (typeof defaultIndex !== 'number') return;
     setTimeout(() => {
-      setActiveCenterNew(_activeIndex);
+      setActiveCenterNew(defaultIndex);
     });
   }, []);
 
@@ -218,7 +221,13 @@ const Slide2D = ({
       <PointListSC>
         {
           slideList.map((item, index) => (
-            <PointSmallSC active={index === _activeIndex} />
+            <PointSmallSC
+              active={index === _activeIndex}
+              onClick={() => {
+                setActiveIndex(index);
+                setActiveCenterNew(index);
+              }}
+            />
           ))
         }
       </PointListSC>
@@ -236,7 +245,8 @@ Slide2D.propTypes = {
     width: PropTypes.number,
     margin: PropTypes.number,
   }) || null,
-  activeIndex: PropTypes.number,
+  activeIndex: PropTypes.number || null,
+  defaultIndex: PropTypes.number || null,
 };
 
 Slide2D.defaultProps = {
@@ -245,7 +255,8 @@ Slide2D.defaultProps = {
   slideList: [],
   onChange: () => { console.log('on change callback'); },
   rowItemInfo: null,
-  activeIndex: 0,
+  activeIndex: null,
+  defaultIndex: null,
 };
 
 export default Slide2D;
