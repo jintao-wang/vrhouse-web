@@ -180,30 +180,22 @@ export const Slide3DInfo = [
       title: '基本介绍',
       params: [
         {
-          地上建筑面积: '96,894.23 平方米',
+          '地上建筑面积: ': '96,894.23 平方米',
         },
         {
-          低区建筑面积: '26,125.03平方米',
+          '低区建筑面积: ': '26,125.03平方米',
         },
         {
-          楼层: '46层',
-          楼高: '220米',
+          '楼层: ': '46层',
+          '楼高: ': '220米',
         },
         {
-          车位数: '低区独立使用100个',
+          '车位数: ': '低区独立使用100个',
         },
         {
-          竣工时间: '2019年10月，低区交付时间为2020年6月',
+          '竣工时间: ': '2019年10月，低区交付时间为2020年6月',
         },
       ],
-    },
-  },
-  {
-    component: 'VideoIntroduction',
-    content: {
-      title: '视频讲盘',
-      poster: 'https://vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/video/ai.mp4?x-oss-process=video/snapshot,t_7000,f_jpg,m_fast',
-      url: 'https://vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/video/ai.mp4',
     },
   },
   // {
@@ -267,6 +259,35 @@ export const Slide3DInfo = [
         x: 28.680081,
         y: 115.818690,
       },
+    },
+  },
+  {
+    component: 'Management',
+    content: {
+      title: '配套及物业管理',
+      params: [
+        {
+          '丽晶物业: ': '',
+        },
+        {
+          '': '十余年甲级写字楼、酒店、商业购物等各类型物业管理经验',
+        },
+        {
+          '周边配套: ': '',
+        },
+        {
+          '': '-万豪行政公寓，万创国际公寓',
+        },
+        {
+          '': '-高品质住宅',
+        },
+        {
+          '': '-1.5万平方米中央艺术公园',
+        },
+        {
+          '': '-欧美购物广场近10万平方米综合购物商场',
+        },
+      ],
     },
   },
 ];

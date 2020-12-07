@@ -57,7 +57,7 @@ const Introduction = ({
           <LineSC>
             {Object.keys(line).map((item) => (
               <ItemSC justOne={Object.keys(line).length === 1}>
-                <span>{`${item}: `}</span>
+                <span>{item}</span>
                 <span>{line[item]}</span>
               </ItemSC>
             ))}

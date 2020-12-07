@@ -232,6 +232,8 @@ const Slide3D = ({
             addressPoint={item.content.addressPoint}
           />
         );
+      case 'Management':
+        return <Introduction title={item.content.title} params={item.content.params} />;
       default:
         return <div>{item.component}</div>;
     }
