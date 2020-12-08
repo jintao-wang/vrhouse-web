@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import NameConverter from '../../../methods/nameConverter';
-import Resource from '../../../methods/resource';
+import NameConverter from '../../../commonJS/nameConverter';
+import Resource from '../../../commonJS/resource';
 import VRHouse from '../../../util/vrHouse';
 
 const useLoadHouse = ({
@@ -12,6 +12,7 @@ const useLoadHouse = ({
   onLoad,
   onLoaded,
   houseInfo,
+  wxShareInfo,
 }) => {
   const [loadState, setLoadState] = useState('loadStart');
   const currentHotId = useRef(null);
@@ -22,13 +23,16 @@ const useLoadHouse = ({
   const [loadPercent, setLoadPercent] = useState(0);
 
   useEffect(() => {
-    console.log(111)
     document.addEventListener('LoadingProgress', (event) => {
       setLoadPercent(Math.floor(event.progress * 100));
     }, false);
-    return () => {
-      console.log(222)
-    }
+    import('../../../commonJS/weixinShare')
+      .then((module) => {
+        const wxShowMenu = module.default;
+        wxShowMenu(wxShareInfo);
+      }).catch((err) => {
+        console.error(err);
+      });
   }, []);
 
   useEffect(() => {

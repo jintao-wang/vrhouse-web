@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import NameConverter from '../../../methods/nameConverter';
-import Resource from '../../../methods/resource';
+import NameConverter from '../../../commonJS/nameConverter';
+import Resource from '../../../commonJS/resource';
 import VRHouse from '../../../util/vrHouse';
 
 const useLoadHouse = ({

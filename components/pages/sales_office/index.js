@@ -10,7 +10,6 @@ import PanelChange3D from '../../common/panel_change_3D/1.0';
 import ToolBar from './tool_bar/1.0';
 import { ColorTheme } from '../../../styles/sales-office-icon/common';
 import { GroupMap, GroupInfo, RecommendList } from '../../../solution_config/sales_office/data';
-import SandTable from './sand_table/sandTable';
 import Slide3D from '../../common/slide_3d/1.0';
 import Animation from '../../common/animation/2.0';
 import VrCover from '../../common/vr_cover/1.0';
@@ -101,6 +100,11 @@ const SalesOffice = () => {
       // defaultHotSpot: '8mtLFsyd',
       // defaultRoom: '阳台',
     }),
+    wxShareInfo: {
+      title: '欧美经融城EFC',
+      desc: 'EFC整体项目集合Foster+Partners、Benoy、Gensler等世界级建筑师事务所，以“超前杭州20年”为标准打造',
+      imgUrl: 'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/weixinshare.jpeg',
+    },
   });
 
   useEffect(() => {
