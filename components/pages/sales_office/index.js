@@ -160,6 +160,7 @@ const SalesOffice = () => {
           !sandTableState && (
             <>
               <Title
+                titleName="欧美金融城EFC"
                 onChange={handleTitleChange}
               />
               <Animation visible={isSlide3D}>

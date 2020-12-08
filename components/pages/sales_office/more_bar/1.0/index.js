@@ -161,39 +161,48 @@ const MoreBar = ({
             </div>
             <div className="describe">项目介绍</div>
           </IconSC>
+          {/* <IconSC onClick={() => { */}
+          {/*  setViewBiggerHeight(480); */}
+          {/*  setViewBigger(true); */}
+          {/*  setViewBiggerInfo({ */}
+          {/*    title: '户型鉴赏', */}
+          {/*    list: FloorPlanList, */}
+          {/*  }); */}
+          {/* }} */}
+          {/* > */}
+          {/*  <div> */}
+          {/*    <i className="icon-planView" /> */}
+          {/*  </div> */}
+          {/*  <div className="describe">户型鉴赏</div> */}
+          {/* </IconSC> */}
+          {/* <IconSC onClick={() => { */}
+          {/*  setViewBiggerHeight(240); */}
+          {/*  setViewBigger(true); */}
+          {/*  setViewBiggerInfo({ */}
+          {/*    title: '区域交通', */}
+          {/*    list: TrafficList, */}
+          {/*  }); */}
+          {/* }} */}
+          {/* > */}
+          {/*  <div> */}
+          {/*    <i className="icon-traffic" /> */}
+          {/*  </div> */}
+          {/*  <div className="describe">区域交通</div> */}
+          {/* </IconSC> */}
           <IconSC onClick={() => {
-            setViewBiggerHeight(480);
-            setViewBigger(true);
-            setViewBiggerInfo({
-              title: '户型鉴赏',
-              list: FloorPlanList,
-            });
-          }}
-          >
-            <div>
-              <i className="icon-planView" />
-            </div>
-            <div className="describe">户型鉴赏</div>
-          </IconSC>
-          <IconSC onClick={() => {
-            setViewBiggerHeight(240);
-            setViewBigger(true);
-            setViewBiggerInfo({
-              title: '区域交通',
-              list: TrafficList,
-            });
+            setIsMap(true);
           }}
           >
             <div>
               <i className="icon-traffic" />
             </div>
-            <div className="describe">区域交通</div>
+            <div className="describe">地图</div>
           </IconSC>
           <IconSC>
             <div>
               <i className="icon-phone" />
             </div>
-            <a className="describe" href="tel:10086">电话</a>
+            <a className="describe" href="tel:0571-86187788">电话</a>
           </IconSC>
         </ContentSC>
         <TriangleIcon left={iconPosition} />
@@ -202,7 +211,7 @@ const MoreBar = ({
         introductionState && (
           <Introduction
             title={IntroductionInfo.title}
-            content={Introduction.content}
+            content={IntroductionInfo.content}
             onClose={() => setIntroductionState(false)}
           />
         )

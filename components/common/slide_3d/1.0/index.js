@@ -10,6 +10,7 @@ import PictureView from '../picture_view/1.0';
 import ZTop from '../../z_top/1.0';
 import Slide2D from '../../slide_2d/1.0';
 import GlobalClose from '../../global-close/2.0';
+import {isMobile} from "../../../../util/common";
 
 const ContainerSC = styled('div')`
   width: 100vw;
@@ -79,7 +80,7 @@ const ViewBigSC = styled('div', ['height'])`
   position: relative;
   
   @media(min-width: 1026px) {
-      width: 500px;
+      width: 400px;
   }
 `;
 
@@ -121,7 +122,7 @@ const ViewBigItemSC = styled('div', ['url', 'height'])`
   //background: white;
   box-sizing: border-box;
   @media(min-width: 1026px) {
-      width: 500px;
+      width: 400px;
   }
   
   .img {
@@ -313,13 +314,13 @@ const Slide3D = ({
 
   const handleViewChange = (number) => {
     // eslint-disable-next-line max-len
-    const nextActive = (viewActiveIndex + number + Slide3DInfo[2].content.length) % Slide3DInfo[2].content.length;
+    const nextActive = (viewActiveIndex + number + Slide3DInfo[1].content.length) % Slide3DInfo[1].content.length;
     setViewActiveIndex(nextActive);
   };
 
   // eslint-disable-next-line react/prop-types
   const ViewBigItemRender = ({ item, active }) => (
-    <ViewBigItemSC url={item.url} active={active} height={280}>
+    <ViewBigItemSC url={item.url} active={active} height={580}>
       <div className="img" />
     </ViewBigItemSC>
   );
@@ -400,10 +401,10 @@ const Slide3D = ({
               <GlobalClose
                 onClose={() => { setViewBigger(false); }}
               >
-                <ViewBigSC height={280}>
+                <ViewBigSC height={580}>
                   <Slide2D
                     activeIndex={viewActiveIndex}
-                    slideList={Slide3DInfo[2].content}
+                    slideList={Slide3DInfo[1].content}
                     onChange={(item, index, callback) => {
                       // if (index === viewActiveIndex) return;
                       setViewActiveIndex(index);
@@ -412,12 +413,18 @@ const Slide3D = ({
                   >
                     <ViewBigItemRender />
                   </Slide2D>
-                  <LeftSC onClick={() => handleViewChange(-1)}>
-                    <i className="icon-pointTop" />
-                  </LeftSC>
-                  <RightSC onClick={() => handleViewChange(1)}>
-                    <i className="icon-pointTop" />
-                  </RightSC>
+                  {
+                    !isMobile && (
+                      <>
+                        <LeftSC onClick={() => handleViewChange(-1)}>
+                          <i className="icon-pointTop" />
+                        </LeftSC>
+                        <RightSC onClick={() => handleViewChange(1)}>
+                          <i className="icon-pointTop" />
+                        </RightSC>
+                      </>
+                    )
+                  }
                 </ViewBigSC>
               </GlobalClose>
             </PictureViewBigSC>

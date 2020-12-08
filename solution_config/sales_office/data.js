@@ -198,69 +198,49 @@ export const Slide3DInfo = [
       ],
     },
   },
-  // {
-  //   component: 'PictureDisplay',
-  //   content: [
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de1.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de2.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de3.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de4.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de1.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de2.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de3.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de4.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de1.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de2.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de3.jpg',
-  //     },
-  //     {
-  //       describe: '',
-  //       url: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/title/picture/de4.jpg',
-  //     },
-  //   ],
-  // },
   {
-    component: 'MapInfo',
-    content: {
-      title: '南昌市工业三路与文化中心南路交汇处',
-      addressPoint: {
-        x: 28.680081,
-        y: 115.818690,
+    component: 'PictureView',
+    content: [
+      {
+        describe: '',
+        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/1197889998.jpg',
       },
-    },
+      {
+        describe: '',
+        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/T6%E8%A5%BF%E4%BE%A7%E5%85%A5%E5%8F%A3%E5%A4%84.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/%E4%B8%9C%E5%8C%97%E7%AB%8B%E9%9D%A2.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/%E4%B8%AD%E9%AB%98%E5%8C%BA%E9%98%BF%E9%87%8C%E5%85%A5%E5%8F%A3%E5%8F%8A%E9%80%9A%E5%BE%80%E4%BA%8C%E5%B1%82%E8%B4%AD%E7%89%A9%E4%B8%AD%E5%BF%83%E7%9A%84%E6%A5%BC%E6%A2%AF.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/%E5%8D%AB%E7%94%9F%E9%97%B4.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/%E5%B1%95%E5%8E%85.jpg',
+      },
+      {
+        describe: '',
+        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/%E9%97%B8%E6%9C%BA2.jpg',
+      },
+    ],
   },
+  // {
+  //   component: 'MapInfo',
+  //   content: {
+  //     title: '南昌市工业三路与文化中心南路交汇处',
+  //     addressPoint: {
+  //       x: 28.680081,
+  //       y: 115.818690,
+  //     },
+  //   },
+  // },
   {
     component: 'Management',
     content: {
@@ -293,8 +273,8 @@ export const Slide3DInfo = [
 ];
 
 export const IntroductionInfo = {
-  title: '金地中奥九颂-都会之光',
-  content: ' 2020年金地约20万平米格林系新作——都会之光，基于格林系特色,通过对园林、户型、建筑、配套等全方位的思考和落实，倡导注重亲情、友邻的居住环境和空间，为业主构建全龄化、更丰盛、更有温度的现代化都会生活场景。',
+  title: '欧美金融城',
+  content: '欧美金融城是杭州的一个金融商业区，于2013年10月动工，于2014年8月开盘。欧美金融城位于杭州未来科技城CBD核心区，整体规划建筑面积近百万平方米',
 };
 
 export const GroupInfo = [
@@ -329,6 +309,16 @@ export const GroupMap = new Map()
       packageName: '网红连廊',
       voice: [],
     },
+    {
+      packageId: 'lyx_b77d0f9198e94fe9ba07fcdc01222b65',
+      packageName: '夜景-1',
+      voice: [],
+    },
+    {
+      packageId: 'lyx_90438eb3060b40a19ba7504087fffa9b',
+      packageName: '夜景-2',
+      voice: [],
+    },
   ])
   .set(GroupInfo[1], [
     {
@@ -348,7 +338,7 @@ export const GroupMap = new Map()
     },
     {
       packageId: 'lyx_6563d302befd470ea47dab6fc3000e83',
-      packageName: '八楼',
+      packageName: '八楼办公区',
       voice: [],
     },
   ]);

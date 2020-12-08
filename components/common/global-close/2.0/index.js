@@ -8,6 +8,7 @@ const GlobalClose = ({
 
   useEffect(() => {
     const closeFunc = (e) => {
+      // eslint-disable-next-line max-len
       if (aimRef.current && aimRef.current.contains(e.target)) return;
       onClose();
       if (stopPropagation) {
@@ -17,13 +18,13 @@ const GlobalClose = ({
     };
 
     if (openListener) {
-      document.body.addEventListener('click', closeFunc);
+      document.body.addEventListener('click', closeFunc, true);
     } else {
-      document.body.removeEventListener('click', closeFunc);
+      document.body.removeEventListener('click', closeFunc, true);
     }
 
     return () => {
-      document.body.removeEventListener('click', closeFunc);
+      document.body.removeEventListener('click', closeFunc, true);
     };
   }, [openListener]);
 

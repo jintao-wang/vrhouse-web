@@ -80,6 +80,13 @@ const ToolBar = ({
     musicSource: activePackage.voice,
   });
 
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    HouseViewer.BaseAPI.onAutoWalkStatusChanged((val) => {
+      setTourActive(val);
+    });
+  }, []);
+
   useEffect(() => () => {
     handlePlayMusic(false);
   }, []);
@@ -159,9 +166,9 @@ const ToolBar = ({
         <ToolItemSC visible onClick={() => handleTour(!tourActive)} active={tourActive}>
           <i className="icon-tour" />
         </ToolItemSC>
-        {/*<PlaySC visible onClick={() => handlePlayMusic(!musicState)} active={musicState}>*/}
-        {/*  <i className="icon-music" />*/}
-        {/*</PlaySC>*/}
+        {/* <PlaySC visible onClick={() => handlePlayMusic(!musicState)} active={musicState}> */}
+        {/*  <i className="icon-music" /> */}
+        {/* </PlaySC> */}
         <ShareSC visible onClick={() => handleShare()}>
           <i className="icon-share" />
         </ShareSC>

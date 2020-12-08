@@ -117,8 +117,8 @@ TMapReact.propTypes = {
 
 TMapReact.defaultProps = {
   addressPoint: {
-    x: 31.222502,
-    y: 121.350851,
+    x: 30.280125,
+    y: 120.001544,
   },
   showClose: true,
   showControl: true,

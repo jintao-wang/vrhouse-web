@@ -7,6 +7,7 @@ import Thumbnail from '../../../../../models/thumbnail';
 import { GroupInfo, GroupMap } from '../../../../../solution_config/sales_office/data';
 import ProjectGroupBar from '../../group_list_bar/1.0';
 import MoreBar from '../../more_bar/1.0';
+import GlobalClose from '../../../../common/global-close/2.0';
 
 const fadeIn = keyframes`
   0% {
@@ -134,6 +135,7 @@ const BottomBar = ({
   setSandTableState,
 }) => {
   const [thumbnailList, setThumbnailList] = useState([]);
+  const thumbnailListLength = useRef(0);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
   // visible prompt hidden
   const [thumbnailState, setThumbnailState] = useState('prompt');
@@ -149,7 +151,10 @@ const BottomBar = ({
   useEffect(() => {
     if (!viewDataModel) return;
     // eslint-disable-next-line react/prop-types
-    setThumbnailList(viewDataModel.HotSpots.map((hotSpot) => new Thumbnail(hotSpot)));
+    const _thumbnailList = viewDataModel.HotSpots.map((hotSpot) => new Thumbnail(hotSpot));
+    thumbnailListLength.current = _thumbnailList.length;
+    setThumbnailList(_thumbnailList);
+    handleThumbnailState('visible');
   }, [viewDataModel]);
 
   useEffect(() => {
@@ -196,13 +201,20 @@ const BottomBar = ({
     if (loadState === 'loadEnd') {
       setGroupOneState(false);
       setGroupTwoState(false);
-      setThumbnailState('visible');
     }
   }, [loadState]);
 
   const style = {
     top: '50px',
     ...styleSC,
+  };
+
+  const handleThumbnailState = (state) => {
+    if (thumbnailListLength.current === 1) {
+      setThumbnailState('hidden');
+    } else {
+      setThumbnailState(state);
+    }
   };
 
   const handlePackageChange = (item, index, callback) => {
@@ -232,7 +244,8 @@ const BottomBar = ({
     if (state) {
       setThumbnailState('hidden');
     } else {
-      setThumbnailState('prompt');
+      // setThumbnailState('prompt');
+      handleThumbnailState('prompt')
     }
   };
 
@@ -244,7 +257,8 @@ const BottomBar = ({
     if (state) {
       setThumbnailState('hidden');
     } else {
-      setThumbnailState('prompt');
+      // setThumbnailState('prompt');
+      handleThumbnailState('prompt');
     }
   };
 
@@ -256,7 +270,8 @@ const BottomBar = ({
     if (state) {
       setThumbnailState('hidden');
     } else {
-      setThumbnailState('prompt');
+      // setThumbnailState('prompt');
+      handleThumbnailState('prompt');
     }
   };
 
@@ -266,13 +281,13 @@ const BottomBar = ({
       if (GroupMap.get(key).includes(item)) {
         if (key === GroupInfo[0]) {
           window.appConfig.panoramaLogoOpacity = 0;
-          window.appConfig.isOutScene = true;
+          // window.appConfig.isOutScene = true;
           setActiveMenu(0);
           setGroupOneIndex(activeIndex);
           setGroupTwoIndex(-1);
         } else if (key === GroupInfo[1]) {
           window.appConfig.panoramaLogoOpacity = 1;
-          window.appConfig.isOutScene = false;
+          // window.appConfig.isOutScene = false;
           setActiveMenu(2);
           setGroupTwoIndex(activeIndex);
           setGroupOneIndex(-1);
@@ -291,12 +306,12 @@ const BottomBar = ({
         if (GroupMap.get(groupKey)[i].packageId === packageId) {
           if (groupKey === GroupInfo[0]) {
             window.appConfig.panoramaLogoOpacity = 0;
-            window.appConfig.isOutScene = true;
+            // window.appConfig.isOutScene = true;
             setActiveMenu(0);
             setGroupOneIndex(i);
           } else if (groupKey === GroupInfo[1]) {
             window.appConfig.panoramaLogoOpacity = 1;
-            window.appConfig.isOutScene = false;
+            // window.appConfig.isOutScene = false;
             setActiveMenu(2);
             setGroupTwoIndex(i);
           }
@@ -327,6 +342,11 @@ const BottomBar = ({
           group={group}
           onChange={handlePackageChange}
           activeIndex={groupOneIndex}
+          onClose={() => {
+            // setThumbnailState('prompt');
+            handleThumbnailState('prompt');
+            setGroupOneState(false);
+          }}
         />
         {/* groupTwo */}
         <ProjectGroupBar
@@ -336,6 +356,11 @@ const BottomBar = ({
           group={group}
           onChange={handlePackageChange}
           activeIndex={groupTwoIndex}
+          onClose={() => {
+            // setThumbnailState('prompt');
+            handleThumbnailState('prompt');
+            setGroupTwoState(false);
+          }}
         />
         <ThumbnailBar
           thumbnailState={thumbnailState}
@@ -355,7 +380,7 @@ const BottomBar = ({
           <div>
             <i className="icon-projectView" />
           </div>
-          <div className="describe">项目总览</div>
+          <div className="describe">外景</div>
         </IconSC>
         {/* <IconSC */}
         {/*  styleSC={style} */}
@@ -383,7 +408,7 @@ const BottomBar = ({
           <div>
             <i className="icon-sampleRoom" />
           </div>
-          <div className="describe">样板间</div>
+          <div className="describe">内景</div>
         </IconSC>
         <IconSC
           ref={(e) => iconRef.current[3] = e}

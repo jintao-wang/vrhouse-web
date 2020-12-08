@@ -7,6 +7,7 @@ const CommonHeader = ({ title, config }) => (
     <meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1,maximum-scale=1,viewport-fit=cover" />
     <title>{title}</title>
     <script src={config} />
+    <link rel="shortcut icon" sizes="196x196" href="https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/logo%4032x32.png" />
     <script src="https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/sdk/2020-12-3/three%40120.min.js" />
     <script src="https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/sdk/2020-12-3/houseviewer%402020080701.min.js" />
   </Head>

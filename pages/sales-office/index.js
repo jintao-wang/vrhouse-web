@@ -6,7 +6,7 @@ import SalesOffice from '../../components/pages/sales_office';
 const Home = () => (
   <>
     <CommonHeader
-      title="虚拟售楼处"
+      title="欧美金融城EFC"
       config="https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/config.js"
     />
     <SalesOffice />

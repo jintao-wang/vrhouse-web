@@ -30,7 +30,7 @@ const SecondContainerSC = styled('div', ['thumbnailState'])`
   pointer-events: auto;
 `;
 
-const TitleSC = styled('div')`
+const TitleSC = styled('div', ['active'])`
   padding: 8px 15px 5px 15px;
   color: white;
   display: flex;
@@ -39,6 +39,11 @@ const TitleSC = styled('div')`
   font-family: PingFangSC-Medium,PingFang SC;
   font-weight: 500;
   border-bottom: 1px solid rgba(255,255,255,.1);
+  
+  .icon {
+    transform: ${(props) => (props.active ? 'rotate(180deg)' : 'rotate(0deg)')};
+    transition: transform .4s;
+  }
 `;
 
 const ScrollContainerSC = styled('div')`
@@ -115,11 +120,11 @@ const ThumbnailBar = ({
   return (
     <Container>
       <SecondContainerSC thumbnailState={thumbnailState}>
-        <TitleSC onClick={() => handleDisplay()}>
+        <TitleSC onClick={() => handleDisplay()} active={thumbnailState === 'visible'}>
           <span>
             全部空间
           </span>
-          <span>
+          <span className="icon">
             <i className="icon-pointTop" />
           </span>
         </TitleSC>
