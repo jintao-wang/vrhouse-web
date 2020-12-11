@@ -58,6 +58,7 @@ const ContentSC = styled('div')`
   font-size: 16px;
   color: white;
   text-shadow: 2px 2px 6px rgba(0,0,0,.2);
+  max-width: 800px;
 `;
 
 const Introduction = ({

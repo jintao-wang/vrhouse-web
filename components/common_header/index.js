@@ -8,8 +8,8 @@ const CommonHeader = ({ title, config }) => (
     <title>{title}</title>
     <script src={config} />
     <link rel="shortcut icon" sizes="196x196" href="https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/logo%4032x32.png" />
-    <script src="https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/sdk/2020-12-3/three%40120.min.js" />
-    <script src="https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/sdk/2020-12-3/houseviewer%402020080701.min.js" />
+    <script src="https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/sdk/three%40120.min.js" />
+    <script src="https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/sdk/houseviewer%402020080701.min.js" />
   </Head>
 );
 

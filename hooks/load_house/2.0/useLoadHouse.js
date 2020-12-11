@@ -26,13 +26,6 @@ const useLoadHouse = ({
     document.addEventListener('LoadingProgress', (event) => {
       setLoadPercent(Math.floor(event.progress * 100));
     }, false);
-    import('../../../commonJS/weixinShare')
-      .then((module) => {
-        const wxShowMenu = module.default;
-        wxShowMenu(wxShareInfo);
-      }).catch((err) => {
-        console.error(err);
-      });
   }, []);
 
   useEffect(() => {
@@ -157,6 +150,13 @@ const useLoadHouse = ({
       setTimeout(() => {
         isFirstLoad.current = false;
       });
+      import('../../../commonJS/weixinShare')
+        .then((module) => {
+          const wxShowMenu = module.default;
+          wxShowMenu(wxShareInfo);
+        }).catch((err) => {
+          console.error(err);
+        });
     };
     const onError = (err) => {
       console.error(err);
@@ -170,7 +170,7 @@ const useLoadHouse = ({
       );
     } else {
       // eslint-disable-next-line no-undef
-      HouseViewer.Resources.init('https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/Solution/', Resource);
+      HouseViewer.Resources.init('https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/', Resource);
       // eslint-disable-next-line no-undef
       HouseViewer.BaseAPI.initViewer(
         viewerInitConfig,

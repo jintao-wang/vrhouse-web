@@ -274,7 +274,10 @@ export const Slide3DInfo = [
 
 export const IntroductionInfo = {
   title: '欧美金融城',
-  content: '欧美金融城是杭州的一个金融商业区，于2013年10月动工，于2014年8月开盘。欧美金融城位于杭州未来科技城CBD核心区，整体规划建筑面积近百万平方米',
+  content: '<p>欧美金融城英国中心西楼（EFC T6）是获得美国LEED Gold认证的顶配超甲级写字楼，这座由英国福斯特建筑事务所倾心打造的“皇冠上的明珠”，被称为“东方硅谷当之无愧的新地标”。</p>' +
+    '<p>科技、共享、人文的加持，让这座未来感十足的地标建筑，正在为未来科技城乃至整个杭州开创一个崭新的世界。<p>'+
+  '<p>The Grade A+ office building ‘EFC UK Center West Building’ has obtained LEED Gold certification. This \'jewel in the crown\' designed by Foster & Partners, also known as a new landmark in the ‘Eastern Silicon Valley’, is creating a new world for the Future Sci-tech City CBD and even Hangzhou as a whole.\n' +
+    'W</p>',
 };
 
 export const GroupInfo = [

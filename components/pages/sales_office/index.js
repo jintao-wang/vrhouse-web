@@ -101,8 +101,8 @@ const SalesOffice = () => {
       // defaultRoom: '阳台',
     }),
     wxShareInfo: {
-      title: '欧美经融城EFC',
-      desc: 'EFC整体项目集合Foster+Partners、Benoy、Gensler等世界级建筑师事务所，以“超前杭州20年”为标准打造',
+      title: '欧美金融城EFC T6',
+      desc: 'Foster+Partners，Benoy，Genslen联合打造',
       imgUrl: 'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/weixinshare.jpeg',
     },
   });

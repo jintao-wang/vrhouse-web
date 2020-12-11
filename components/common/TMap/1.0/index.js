@@ -63,7 +63,7 @@ const TMapReact = ({
     // eslint-disable-next-line no-unused-vars
     map = new TMap.Map(mapRef.current, {
       center, // 设置地图中心点坐标
-      zoom: 17.2, // 设置地图缩放级别
+      zoom: 18, // 设置地图缩放级别
       draggable: showControl,
       showControl,
     });
@@ -73,10 +73,10 @@ const TMapReact = ({
       map,
       styles: { // 点标注的相关样式
         marker: new TMap.MarkerStyle({
-          width: 25,
-          height: 35,
+          width: 50,
+          height: 50,
           anchor: { x: 16, y: 32 },
-          src: 'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerDefault.png',
+          src: 'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/mapLogo.png',
         }),
       },
       geometries: [{ // 点标注数据数组
