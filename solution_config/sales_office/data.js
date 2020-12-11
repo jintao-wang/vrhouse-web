@@ -180,10 +180,10 @@ export const Slide3DInfo = [
       title: '基本介绍',
       params: [
         {
-          '地上建筑面积: ': '96,894.23 平方米',
+          '地上建筑面积: ': '96,894.23 平方米 ',
         },
         {
-          '低区建筑面积: ': '26,125.03平方米',
+          '低区建筑面积: ': '26,125.03 平方米',
         },
         {
           '楼层: ': '46层',
@@ -194,6 +194,30 @@ export const Slide3DInfo = [
         },
         {
           '竣工时间: ': '2019年10月，低区交付时间为2020年6月',
+        },
+      ],
+    },
+  },
+  {
+    component: 'IntroductionEn',
+    content: {
+      title: 'Introduction',
+      params: [
+        {
+          'aboveground: ': '96,894.23 sqm',
+        },
+        {
+          'lower zone: ': '26,125.03 sqm',
+        },
+        {
+          'No. of Floors: ': '46 floors',
+          'Tower Height: ': '220m',
+        },
+        {
+          'No. of Carparks: ': '100 for lower zones',
+        },
+        {
+          'Handover date: ': 'Jun.2020 (lower zone)',
         },
       ],
     },
@@ -266,6 +290,32 @@ export const Slide3DInfo = [
         },
         {
           '': '-欧美购物广场近10万平方米综合购物商场',
+        },
+      ],
+    },
+  },
+  {
+    component: 'ManagementEn',
+    content: {
+      title: 'Property Management and Commercial Facilities',
+      params: [
+        {
+          'LiJing Property Management: ': '',
+        },
+        {
+          '': '10+ years of experience in the management of Grade A office buildings, hotels, shopping centers, etc.',
+        },
+        {
+          'Commercial facilities:': '',
+        },
+        {
+          '': '-Marriott Executive Apartments, EFC Residence',
+        },
+        {
+          '': '-Central Garden (1,500 sqm)',
+        },
+        {
+          '': '-EFC Live shopping center (100,000 sqm+)',
         },
       ],
     },

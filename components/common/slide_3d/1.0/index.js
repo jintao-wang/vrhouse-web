@@ -163,6 +163,11 @@ const Slide3D = ({
   };
 
   const updateList = (activeIndex) => {
+    if (slideListTemp.current.length === 5) {
+      const array = [...slideListTemp.current];
+      setSlideList(array);
+    }
+
     if (slideListTemp.current.length === 4) {
       const array = [...slideListTemp.current];
       array.splice((activeIndex + 2 + 5) % 5, 0, {
@@ -330,6 +335,8 @@ const Slide3D = ({
     switch (item.component) {
       case 'Introduction':
         return <Introduction title={item.content.title} params={item.content.params} />;
+      case 'IntroductionEn':
+        return <Introduction title={item.content.title} params={item.content.params} />;
       case 'VideoIntroduction':
         return (
           <VideoIntroduction
@@ -354,6 +361,8 @@ const Slide3D = ({
           />
         );
       case 'Management':
+        return <Introduction title={item.content.title} params={item.content.params} />;
+      case 'ManagementEn':
         return <Introduction title={item.content.title} params={item.content.params} />;
       default:
         return <div>{item.component}</div>;
