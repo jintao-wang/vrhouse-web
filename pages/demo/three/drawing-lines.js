@@ -55,18 +55,34 @@ const Home = () => {
       position: [250, 50, 350],
     });
 
+    const plane2Box = new PlaneBox({
+      size: 100,
+      color: 'rgb(251, 168, 74)',
+      opacity: 0.6,
+      position: [450, 200, 750],
+    });
+
+
+
     planeBox.addTo(scene);
+    plane2Box.addTo(scene);
 
     const onMouseMove = (event) => {
       getMousePosition(camera, event, renderer.domElement, position);
       raycaster.setFromCamera(position, camera);
-      const intersects = raycaster.intersectObjects(scene.children);
+      const intersects = raycaster.intersectObjects(scene.children, true);
       if (intersects.length > 0) {
-        console.log(intersects[0].face.materialIndex);
+        console.log(intersects);
         if(planeBox.getOpenState()) {
           planeBox.close()
         }else {
           planeBox.open()
+        }
+
+        if(plane2Box.getOpenState()) {
+          plane2Box.close()
+        }else {
+          plane2Box.open()
         }
 
         if (intersects[0].object.material.length) {
@@ -108,8 +124,8 @@ const Home = () => {
     // scene.add(floorMesh);
 
     // grid
-    // const gridHelper = new THREE.GridHelper(2000, 20);
-    // scene.add(gridHelper);
+    const gridHelper = new THREE.GridHelper(2000, 20);
+    scene.add(gridHelper);
 
     const planGeometry1 = new THREE.PlaneBufferGeometry(100, 100, 1);
     const planMaterial1 = new THREE.MeshBasicMaterial({ color: 'rgb(23, 48, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide });
@@ -210,55 +226,6 @@ const Home = () => {
     }
     animate();
   }, []);
-
-  // const getMousePosition = (camera, domEvent, domElement, position) => {
-  //   let xScreen;
-  //   let yScreen;
-  //   let xRelative;
-  //   let yReleative;
-  //
-  //   if (domEvent.type === 'touchstart' || domEvent.type === 'touchmove') {
-  //     xScreen = domEvent.touches[0].pageX;
-  //     yScreen = domEvent.touches[0].pageY;
-  //   } else if (domEvent.type === 'touchend') {
-  //     xScreen = domEvent.changedTouches[0].pageX;
-  //     yScreen = domEvent.changedTouches[0].pageY;
-  //   } else {
-  //     xScreen = domEvent.clientX;
-  //     yScreen = domEvent.clientY;
-  //   }
-  //
-  //   if (domElement && domElement.viewPort) {
-  //     const viewport = domElement.viewPort;
-  { /*    xRelative = (xScreen - viewport.left) / viewport.width; */ }
-  { /*    yReleative = (yScreen - viewport.top) / viewport.height; */ }
-  //   } else if (camera && camera.viewPort) {
-  //     const left = camera.viewPort.left / domElement.clientWidth;
-  //     const top = camera.viewPort.top / domElement.clientHeight;
-  //     const width = camera.viewPort.width / domElement.clientWidth;
-  //     const height = camera.viewPort.height / domElement.clientHeight;
-  //
-  { /*    xRelative = (xScreen - left) / width; */ }
-  { /*    yReleative = (yScreen - top) / height; */ }
-  { /*  } else { */ }
-  { /*    xRelative = xScreen / domElement.clientWidth; */ }
-  { /*    yReleative = yScreen / domElement.clientHeight; */ }
-  { /*    let { */ }
-  //       left, top, width, height,
-  //     } = domElement.getBoundingClientRect();
-  //
-  { /*    left /= domElement.clientWidth; */ }
-  { /*    top /= domElement.clientHeight; */ }
-  { /*    width /= domElement.clientWidth; */ }
-  { /*    height /= domElement.clientHeight; */ }
-  //
-  //     xRelative = (xScreen - left) / width;
-  //     yReleative = (yScreen - top) / height;
-  //   }
-  //
-  //   position.x = xRelative * 2 - 1;
-  //   position.y = -yReleative * 2 + 1;
-  // };
 
   const getMousePosition = (camera, domEvent, domElement, position) => {
     position.x = ((domEvent.clientX - domElement.getBoundingClientRect().left) / domElement.offsetWidth) * 2 - 1;

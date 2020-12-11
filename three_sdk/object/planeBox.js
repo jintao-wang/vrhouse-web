@@ -38,12 +38,11 @@ export default class PlaneBox {
     });
     this.plane0 = new THREE.Mesh(planGeometry0, planMaterial0);
     this.plane0.position.set(0, this.size / 2, 0);
-    // this.plane0.position.set(this.position[0] + this.size / 2, this.position[1], this.position[2]);
     this.plane0.rotation.y = Math.PI / 2;
-    this.dummy = new THREE.Object3D();
-    this.dummy.add(this.plane0);
-    this.dummy.position.set(this.position[0] + this.size / 2, this.position[1] - this.size / 2, this.position[2]);
-    this.planeBox[0] = this.dummy;
+    this.plane0Container = new THREE.Object3D();
+    this.plane0Container.add(this.plane0);
+    this.plane0Container.position.set(this.position[0] + this.size / 2, this.position[1] - this.size / 2, this.position[2]);
+    this.planeBox[0] = this.plane0Container;
 
 
 
@@ -55,9 +54,12 @@ export default class PlaneBox {
       side: THREE.DoubleSide,
     });
     this.plane1 = new THREE.Mesh(planGeometry1, planMaterial1);
-    this.plane1.position.set(this.position[0] - this.size / 2, this.position[1], this.position[2]);
+    this.plane1.position.set(0, this.size / 2, 0);
     this.plane1.rotation.y = Math.PI / 2;
-    this.planeBox[1] = this.plane1;
+    this.plane1Container = new THREE.Object3D();
+    this.plane1Container.add(this.plane1);
+    this.plane1Container.position.set(this.position[0] - this.size / 2, this.position[1] - this.size / 2, this.position[2]);
+    this.planeBox[1] = this.plane1Container;
 
     // const planGeometry2 = new THREE.PlaneBufferGeometry(this.size, this.size, 1);
     // const planMaterial2 = new THREE.MeshLambertMaterial({
@@ -91,8 +93,11 @@ export default class PlaneBox {
       side: THREE.DoubleSide,
     });
     this.plane4 = new THREE.Mesh(planGeometry4, planMaterial4);
-    this.plane4.position.set(this.position[0], this.position[1], this.position[2] + this.size / 2);
-    this.planeBox[4] = this.plane4;
+    this.plane4.position.set(0, this.size / 2, 0);
+    this.plane4Container = new THREE.Object3D();
+    this.plane4Container.add(this.plane4);
+    this.plane4Container.position.set(this.position[0], this.position[1] - this.size / 2, this.position[2] + this.size / 2);
+    this.planeBox[4] = this.plane4Container;
 
     const planGeometry5 = new THREE.PlaneBufferGeometry(this.size, this.size, 1);
     const planMaterial5 = new THREE.MeshLambertMaterial({
@@ -102,8 +107,11 @@ export default class PlaneBox {
       side: THREE.DoubleSide,
     });
     this.plane5 = new THREE.Mesh(planGeometry5, planMaterial5);
-    this.plane5.position.set(this.position[0], this.position[1], this.position[2] - this.size / 2);
-    this.planeBox[5] = this.plane5;
+    this.plane5.position.set(0, this.size / 2, 0);
+    this.plane5Container = new THREE.Object3D();
+    this.plane5Container.add(this.plane5);
+    this.plane5Container.position.set(this.position[0], this.position[1] - this.size / 2, this.position[2] - this.size / 2);
+    this.planeBox[5] = this.plane5Container;
 
     // const material = new THREE.LineBasicMaterial( { color: 0x0000ff } );
     // const points = [];
@@ -121,27 +129,41 @@ export default class PlaneBox {
   }
 
   open() {
-    // this.plane0.rotation.y = 0;
-    // this.plane0.position.set(this.position[0] + this.size, this.position[1] - this.size / 2, this.position[2]);
-    // this.plane0.rotation.x = Math.PI / 2
     this.animate({
       duration: 1000,
       timing: (timeFraction) => timeFraction,
       draw: (progress) => {
         // eslint-disable-next-line max-len
-        this.dummy.rotation.z = - Math.PI / 2 * progress;
+        this.plane0Container.rotation.z = - Math.PI / 2 * progress;
       },
     });
 
-    this.plane1.rotation.y = 0;
-    this.plane1.position.set(this.position[0] - this.size, this.position[1] - this.size / 2, this.position[2]);
-    this.plane1.rotation.x = Math.PI / 2;
+    this.animate({
+      duration: 1000,
+      timing: (timeFraction) => timeFraction,
+      draw: (progress) => {
+        // eslint-disable-next-line max-len
+        this.plane1Container.rotation.z = Math.PI / 2 * progress;
+      },
+    });
 
-    this.plane4.position.set(this.position[0], this.position[1] - this.size / 2, this.position[2] + this.size);
-    this.plane4.rotation.x = Math.PI / 2;
+    this.animate({
+      duration: 1000,
+      timing: (timeFraction) => timeFraction,
+      draw: (progress) => {
+        // eslint-disable-next-line max-len
+        this.plane4Container.rotation.x = Math.PI / 2 * progress;
+      },
+    });
 
-    this.plane5.position.set(this.position[0], this.position[1] - this.size / 2, this.position[2] - this.size);
-    this.plane5.rotation.x = Math.PI / 2;
+    this.animate({
+      duration: 1000,
+      timing: (timeFraction) => timeFraction,
+      draw: (progress) => {
+        // eslint-disable-next-line max-len
+        this.plane5Container.rotation.x = -Math.PI / 2 * progress;
+      },
+    });
 
     this.isOpen = true;
   }
@@ -155,21 +177,36 @@ export default class PlaneBox {
       timing: (timeFraction) => timeFraction,
       draw: (progress) => {
         // eslint-disable-next-line max-len
-        this.dummy.rotation.z = - Math.PI / 2 + Math.PI / 2 * progress;
+        this.plane0Container.rotation.z = - Math.PI / 2 + Math.PI / 2 * progress;
       },
     });
 
+    this.animate({
+      duration: 1000,
+      timing: (timeFraction) => timeFraction,
+      draw: (progress) => {
+        // eslint-disable-next-line max-len
+        this.plane1Container.rotation.z = Math.PI / 2  - Math.PI / 2 * progress;
+      },
+    });
 
+    this.animate({
+      duration: 1000,
+      timing: (timeFraction) => timeFraction,
+      draw: (progress) => {
+        // eslint-disable-next-line max-len
+        this.plane4Container.rotation.x = Math.PI / 2  - Math.PI / 2 * progress;
+      },
+    });
 
-    this.plane1.rotation.x = 0;
-    this.plane1.position.set(this.position[0] - this.size / 2, this.position[1], this.position[2]);
-    this.plane1.rotation.y = Math.PI / 2;
-
-    this.plane4.rotation.x = 0;
-    this.plane4.position.set(this.position[0], this.position[1], this.position[2] + this.size / 2);
-
-    this.plane5.rotation.x = 0;
-    this.plane5.position.set(this.position[0], this.position[1], this.position[2] - this.size / 2);
+    this.animate({
+      duration: 1000,
+      timing: (timeFraction) => timeFraction,
+      draw: (progress) => {
+        // eslint-disable-next-line max-len
+        this.plane5Container.rotation.x =  - Math.PI / 2 + Math.PI / 2 * progress;
+      },
+    });
 
     this.isOpen = false;
   }
