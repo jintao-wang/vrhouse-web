@@ -413,7 +413,7 @@ const Slide3D = ({
                 <ViewBigSC height={580}>
                   <Slide2D
                     activeIndex={viewActiveIndex}
-                    slideList={Slide3DInfo[1].content}
+                    slideList={Slide3DInfo[2].content}
                     onChange={(item, index, callback) => {
                       // if (index === viewActiveIndex) return;
                       setViewActiveIndex(index);
