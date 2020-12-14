@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import oc from 'three-orbit-controls';
 import CommonHeader from '../../../components/common_header';
 import TransparentBox from '../../../three_sdk/object/transparentBox';
-import PlaneBox from "../../../three_sdk/object/planeBox";
+import PlaneBox from '../../../three_sdk/object/planeBox';
 
 const ContainerSC = styled('div')`
   position: fixed;
@@ -62,8 +62,6 @@ const Home = () => {
       position: [450, 200, 750],
     });
 
-
-
     planeBox.addTo(scene);
     plane2Box.addTo(scene);
 
@@ -73,16 +71,16 @@ const Home = () => {
       const intersects = raycaster.intersectObjects(scene.children, true);
       if (intersects.length > 0) {
         console.log(intersects);
-        if(planeBox.getOpenState()) {
-          planeBox.close()
-        }else {
-          planeBox.open()
+        if (planeBox.getOpenState()) {
+          planeBox.close();
+        } else {
+          planeBox.open();
         }
 
-        if(plane2Box.getOpenState()) {
-          plane2Box.close()
-        }else {
-          plane2Box.open()
+        if (plane2Box.getOpenState()) {
+          plane2Box.close();
+        } else {
+          plane2Box.open();
         }
 
         if (intersects[0].object.material.length) {
@@ -128,36 +126,46 @@ const Home = () => {
     scene.add(gridHelper);
 
     const planGeometry1 = new THREE.PlaneBufferGeometry(100, 100, 1);
-    const planMaterial1 = new THREE.MeshBasicMaterial({ color: 'rgb(23, 48, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide });
+    const planMaterial1 = new THREE.MeshBasicMaterial({
+      color: 'rgb(23, 48, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide,
+    });
     const plane1 = new THREE.Mesh(planGeometry1, planMaterial1);
     plane1.position.set(-50, 50, 400);
     scene.add(plane1);
 
     const planGeometry2 = new THREE.PlaneBufferGeometry(100, 100, 1);
-    const planMaterial2 = new THREE.MeshBasicMaterial({ color: 'rgb(23, 148, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide });
+    const planMaterial2 = new THREE.MeshBasicMaterial({
+      color: 'rgb(23, 148, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide,
+    });
     const plane2 = new THREE.Mesh(planGeometry2, planMaterial2);
     plane2.position.set(-50, 50, 300);
     scene.add(plane2);
 
     const planGeometry3 = new THREE.PlaneBufferGeometry(100, 100, 1);
-    const planMaterial3 = new THREE.MeshBasicMaterial({ color: 'rgb(23, 78, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide });
+    const planMaterial3 = new THREE.MeshBasicMaterial({
+      color: 'rgb(23, 78, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide,
+    });
     const plane3 = new THREE.Mesh(planGeometry3, planMaterial3);
     plane3.position.set(-100, 50, 350);
-    plane3.rotation.y = Math.PI/2;
+    plane3.rotation.y = Math.PI / 2;
     scene.add(plane3);
 
     const planGeometry4 = new THREE.PlaneBufferGeometry(100, 100, 1);
-    const planMaterial4 = new THREE.MeshBasicMaterial({ color: 'rgb(23, 78, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide });
+    const planMaterial4 = new THREE.MeshBasicMaterial({
+      color: 'rgb(23, 78, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide,
+    });
     const plane4 = new THREE.Mesh(planGeometry4, planMaterial4);
     plane4.position.set(0, 50, 350);
-    plane4.rotation.y = Math.PI/2;
+    plane4.rotation.y = Math.PI / 2;
     scene.add(plane4);
 
     const planGeometry5 = new THREE.PlaneBufferGeometry(100, 100, 1);
-    const planMaterial5 = new THREE.MeshBasicMaterial({ color: 'rgb(123, 78, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide });
+    const planMaterial5 = new THREE.MeshBasicMaterial({
+      color: 'rgb(123, 78, 99)', transparent: true, opacity: 0.6, side: THREE.DoubleSide,
+    });
     const plane5 = new THREE.Mesh(planGeometry5, planMaterial5);
     plane5.position.set(-50, 0, 350);
-    plane5.rotation.x = Math.PI/2;
+    plane5.rotation.x = Math.PI / 2;
     scene.add(plane5);
 
     const cube1_1 = new TransparentBox({
