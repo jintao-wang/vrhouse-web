@@ -175,28 +175,25 @@ const SalesOffice = () => {
             </>
           )
         }
-        {
-          !isSlide3D && !sandTableState && (
-            <ToolBar
-              positionSC={{
-                position: 'absolute',
-                right: '12px',
-                top: '38px',
-              }}
-              colorTheme={ColorTheme}
-              houseInfo={{
-                packageId: activePackage.packageId,
-                domain: activePackage.domain || activeGroup.defaultDomain,
-              }}
-              activePackage={activePackage}
-              onVrOpen={() => {
-                // eslint-disable-next-line no-undef
-                HouseViewer.BaseAPI.toggleVR(true);
-                setFocus(true);
-              }}
-            />
-          )
-        }
+        <ToolBar
+          visible={!isSlide3D && !sandTableState}
+          positionSC={{
+            position: 'absolute',
+            right: '12px',
+            top: '38px',
+          }}
+          colorTheme={ColorTheme}
+          houseInfo={{
+            packageId: activePackage.packageId,
+            domain: activePackage.domain || activeGroup.defaultDomain,
+          }}
+          activePackage={activePackage}
+          onVrOpen={() => {
+            // eslint-disable-next-line no-undef
+            HouseViewer.BaseAPI.toggleVR(true);
+            setFocus(true);
+          }}
+        />
         <BottomBar
           isChangingPanorama={isChangingPanorama}
           currentHotSpotId={currentHotId}

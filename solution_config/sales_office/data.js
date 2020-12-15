@@ -350,48 +350,66 @@ export const GroupMap = new Map()
     {
       packageId: 'lyx_46bbc1085e9f4f0485d1e14182a80a9f',
       packageName: '航拍夜景',
-      voice: [],
+      voice: [
+        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+      ],
     },
     {
       packageId: 'lyx_4c93415ade5a43348cdcece5885627af',
       packageName: '航拍日景',
-      voice: [],
+      voice: [
+        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+      ],
     },
     {
       packageId: 'lyx_912baa7f0c15482caac0b086cf74900d',
       packageName: '网红连廊',
-      voice: [],
+      voice: [
+        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+      ],
     },
     {
       packageId: 'lyx_b77d0f9198e94fe9ba07fcdc01222b65',
       packageName: '夜景-1',
-      voice: [],
+      voice: [
+        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+      ],
     },
     {
       packageId: 'lyx_90438eb3060b40a19ba7504087fffa9b',
       packageName: '夜景-2',
-      voice: [],
+      voice: [
+        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+      ],
     },
   ])
   .set(GroupInfo[1], [
     {
       packageId: 'lyx_a3e8fb5c78e44059939a4b066ae69f29',
       packageName: '大堂',
-      voice: [],
+      voice: [
+        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+      ],
     },
     {
       packageId: 'lyx_3e2b533b460048169dbb50eda51f77dc',
       packageName: '车库',
-      voice: [],
+      voice: [
+        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+      ],
     },
     {
       packageId: 'lyx_3cf0455e3c6142caa65348d0d9d182a7',
       packageName: '八楼电梯间',
-      voice: [],
+      voice: [
+        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+      ],
     },
     {
       packageId: 'lyx_6563d302befd470ea47dab6fc3000e83',
       packageName: '八楼办公区',
-      voice: [],
+      voice: [
+        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+      ],
     },
   ]);

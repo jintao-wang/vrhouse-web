@@ -8,8 +8,8 @@ import GlobalClose from '../../../../common/global-close/2.0';
 import Message from '../../../../common/message/1.0';
 import { vrFocusStore } from '../../../../../store';
 
-const ContainerSC = styled('div', ['styleSC', 'positionSC'])`
-  display: flex;
+const ContainerSC = styled('div', ['styleSC', 'positionSC', 'visible'])`
+  display: ${(props) => (props.visible ? 'flex' : 'none')};
   height: auto;
   flex-direction: column;
   align-items: center;
@@ -68,6 +68,7 @@ const ToolBar = ({
   onUnShort,
   houseInfo,
   activePackage,
+  visible,
 }) => {
   const [tourActive, setTourActive] = useState(false);
   const [rulerActive, setRulerActive] = useState(false);
@@ -78,6 +79,7 @@ const ToolBar = ({
     initialState: false,
     // eslint-disable-next-line react/prop-types
     musicSource: activePackage.voice,
+    isAutoPlay: true,
   });
 
   useEffect(() => {
@@ -161,14 +163,14 @@ const ToolBar = ({
       openListener={!isShort}
       stopPropagation={false}
     >
-      <ContainerSC styleSC={style} positionSC={positionSC}>
+      <ContainerSC styleSC={style} positionSC={positionSC} visible={visible}>
         <Message visible={isMessage} />
         <ToolItemSC visible onClick={() => handleTour(!tourActive)} active={tourActive}>
           <i className="icon-tour" />
         </ToolItemSC>
-        {/* <PlaySC visible onClick={() => handlePlayMusic(!musicState)} active={musicState}> */}
-        {/*  <i className="icon-music" /> */}
-        {/* </PlaySC> */}
+        <PlaySC visible onClick={() => handlePlayMusic(!musicState)} active={musicState}>
+          <i className="icon-music" />
+        </PlaySC>
         <ShareSC visible onClick={() => handleShare()}>
           <i className="icon-share" />
         </ShareSC>
@@ -192,6 +194,7 @@ ToolBar.propTypes = {
   // activePackageId: PropTypes.string.isRequired,
   houseInfo: PropTypes.shape({}),
   activePackage: PropTypes.shape({}),
+  visible: PropTypes.bool,
 };
 
 ToolBar.defaultProps = {
@@ -206,6 +209,7 @@ ToolBar.defaultProps = {
   onUnShort: () => { console.log('This is onUnShort callback'); },
   houseInfo: {},
   activePackage: {},
+  visible: true,
 };
 
 export default ToolBar;
