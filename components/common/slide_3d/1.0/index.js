@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef, useCallback} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import TouchCommon from '../../touch_common/TouchCommon';
-import { Slide3DInfo } from '../../../../solution_config/sales_office/data';
+// import { Slide3DInfo } from '../../../../solution_config/sales_office/data';
 import Introduction from '../introduction/1.0';
 import VideoIntroduction from '../video_introduction/1.0';
 import MapInfo from '../map_info/1.0';
@@ -313,7 +313,7 @@ const Slide3D = ({
 
   const handleViewChange = (number) => {
     // eslint-disable-next-line max-len
-    const nextActive = (viewActiveIndex + number + Slide3DInfo[2].content.length) % Slide3DInfo[2].content.length;
+    const nextActive = (viewActiveIndex + number + slideList[2].content.length) % slideList[2].content.length;
     setViewActiveIndex(nextActive);
   };
 
@@ -401,7 +401,7 @@ const Slide3D = ({
                 <ViewBigSC height={280}>
                   <Slide2D
                     activeIndex={viewActiveIndex}
-                    slideList={Slide3DInfo[2].content}
+                    slideList={slideList[2].content}
                     onChange={(item, index, callback) => {
                       // if (index === viewActiveIndex) return;
                       setViewActiveIndex(index);
@@ -431,7 +431,7 @@ Slide3D.propTypes = {
 };
 
 Slide3D.defaultProps = {
-  slideList: Slide3DInfo,
+  slideList: [],
 };
 
 export default Slide3D;

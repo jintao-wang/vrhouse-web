@@ -73,7 +73,7 @@ const Panner3D = ({
       return `${hotSpotInfo.Name}：${hotSpotInfo.Area.toFixed(1)}m²`;
     }
     if (hotSpotInfo) {
-      return `${hotSpotInfo.Name}`;
+      return `${hotSpotInfo.Name || '加载中...'}`;
     }
     return '';
   };

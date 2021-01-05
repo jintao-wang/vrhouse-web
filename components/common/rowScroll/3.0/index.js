@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { AnimateJS } from '../../../../util/common';
+import { GetObjectId } from '../../../../util/closures';
 
 const ContainerSC = styled('div', ['styleSC'])`
     position: relative;
@@ -21,7 +23,7 @@ const UlContainerSC = styled('div')`
     overflow:hidden;
 `;
 
-const UlSC = styled('ul', ['styleSC'])`
+const UlSC = styled('ul', ['styleSC', 'liMargin'])`
    white-space: nowrap;
    padding: 0;
    margin: 0;
@@ -38,71 +40,42 @@ const UlSC = styled('ul', ['styleSC'])`
     li {
      list-style: none;
      display: inline-block;
-     margin: ${(props) => props.styleSC.liMargin};
+     margin: ${(props) => props.liMargin}px;
      cursor: pointer;
     }
 `;
 
 const RowScroll = ({
-  styleSC, children, scrollList, onChange, rowItemInfo, activeIndex,
+  styleSC,
+  children,
+  scrollList,
+  onChange,
+  activeItem,
+  liMargin,
 }) => {
-  const [_activeIndex, setActiveIndex] = useState(activeIndex);
   const containerRef = useRef(null);
+  const getObject = useRef(GetObjectId());
   const ulRef = useRef(null);
-  const [scrollLength, setScrollLength] = useState(null);
+  const scrollTotalWidth = useRef(null);
   const style = {
     ...styleSC,
   };
   const listsInfoRef = useRef([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setActiveIndex(activeIndex);
-      setActiveCenterNew(activeIndex);
-      if (activeIndex === -1) {
-        setActiveCenterNew(0);
-      }
+    if (!scrollList || scrollList.length === 0) return;
+    let rowWidthTemp = 0;
+    listsInfoRef.current = [];
+    ulRef.current.children.forEach((item) => {
+      rowWidthTemp += item.clientWidth + (2 * liMargin);
+      listsInfoRef.current.push(item.clientWidth + (2 * liMargin));
     });
-  }, [activeIndex]);
-
-  useEffect(() => {
-    if (rowItemInfo) {
-      const rowWidthTemp = rowItemInfo.width + 2 * rowItemInfo.margin + 2;
-      scrollList.forEach(() => {
-        listsInfoRef.current.push(rowWidthTemp);
-      });
-      setScrollLength(scrollList.length * rowWidthTemp);
-    } else {
-      let scrollLengthTemp = 0;
-      listsInfoRef.current = [];
-      ulRef.current.children.forEach((item) => {
-        scrollLengthTemp += item.clientWidth;
-        listsInfoRef.current.push(item.clientWidth);
-      });
-      setScrollLength(scrollLengthTemp);
-    }
+    scrollTotalWidth.current = rowWidthTemp;
   }, [scrollList]);
-
-  const animate = ({ timing, draw, duration }) => {
-    const start = performance.now();
-    // eslint-disable-next-line no-shadow
-    requestAnimationFrame(function animate(time) {
-      let timeFraction = (time - start) / duration;
-      if (timeFraction > 1) timeFraction = 1;
-
-      const progress = timing(timeFraction);
-      draw(progress); // 绘制
-
-      if (timeFraction < 1) {
-        // eslint-disable-next-line no-unused-vars
-        requestAnimationFrame(animate);
-      }
-    });
-  };
 
   const scrollAnimate = (totalScrollLeft) => {
     const preScrollLeft = ulRef.current.scrollLeft;
-    animate({
+    AnimateJS({
       duration: 400,
       timing: (timeFraction) => timeFraction,
       draw: (progress) => {
@@ -121,13 +94,13 @@ const RowScroll = ({
     return width;
   };
 
-  const setActiveCenterNew = (index) => {
+  const setActiveCenter = (index) => {
     const containerWidth = containerRef.current.clientWidth;
-    if (scrollLength <= containerWidth) return;
+    if (scrollTotalWidth.current <= containerWidth) return;
     if (getActiveWidth(index) < containerWidth / 2) {
       scrollAnimate(0);
-    } else if (scrollLength - getActiveWidth(index + 1) <= containerWidth / 2) {
-      scrollAnimate(scrollLength - containerWidth);
+    } else if (scrollTotalWidth.current - getActiveWidth(index + 1) <= containerWidth / 2) {
+      scrollAnimate(scrollTotalWidth.current - containerWidth);
     } else {
       // eslint-disable-next-line max-len
       scrollAnimate(getActiveWidth(index + 1) - containerWidth / 2 - listsInfoRef.current[index] / 2);
@@ -137,15 +110,16 @@ const RowScroll = ({
   return (
     <ContainerSC styleSC={style} ref={containerRef}>
       <UlContainerSC styleSC={style}>
-        <UlSC styleSC={style} ref={ulRef}>
+        <UlSC styleSC={style} ref={ulRef} liMargin={liMargin}>
           {
             scrollList.map((item, index) => (
+              // eslint-disable-next-line max-len
+              // eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions
               <li
+                key={getObject.current(item)}
                 onClick={() => {
-                  onChange(item, index, () => {
-                    setActiveIndex(index);
-                    setActiveCenterNew(index);
-                  });
+                  onChange(item);
+                  setActiveCenter(index);
                 }}
               >
                 {
@@ -153,7 +127,7 @@ const RowScroll = ({
                     children,
                     {
                       item,
-                      active: _activeIndex === index,
+                      active: activeItem === item,
                     },
                   )
                 }
@@ -169,23 +143,20 @@ const RowScroll = ({
 RowScroll.propTypes = {
   styleSC: PropTypes.shape({
   }),
+  liMargin: PropTypes.number,
   children: PropTypes.node,
   scrollList: PropTypes.arrayOf(PropTypes.any),
   onChange: PropTypes.func,
-  rowItemInfo: PropTypes.shape({
-    width: PropTypes.number,
-    margin: PropTypes.number,
-  }) || null,
-  activeIndex: PropTypes.number,
+  activeItem: PropTypes.shape({}),
 };
 
 RowScroll.defaultProps = {
   styleSC: {},
+  liMargin: 0,
   children: <div />,
   scrollList: [],
   onChange: () => { console.log('on change callback'); },
-  rowItemInfo: null,
-  activeIndex: 0,
+  activeItem: {},
 };
 
 export default RowScroll;

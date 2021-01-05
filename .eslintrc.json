@@ -16,6 +16,10 @@
     "es6": true,
     "node": true
   },
+  // 配置允许的全局变量
+  "globals": {
+    "HouseViewer": true
+  },
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -30,9 +34,11 @@
   },
   "plugins": [],
   "rules": {
+    "no-param-reassign": [0],
     "react/jsx-filename-extension" : [1, { "extensions": [".js", ".jsx"] }], // 1 warn
-    "no-use-before-define": [2, { "variables": false }], // 2 error
+    "no-use-before-define": [0, { "variables": false }], // 2 error
     "no-underscore-dangle": [0], // 0 off
+    "global-require": [0],
     "react-hooks/rules-of-hooks": "error", // 检查 Hook 的规则
     "react-hooks/exhaustive-deps": "warn" // 检查 effect 的依赖
   }

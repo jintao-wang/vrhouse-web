@@ -26,6 +26,27 @@ export const UUID8Bit = () => {
   return uuid;
 };
 
+export const AnimateJS = ({
+  timing,
+  draw,
+  duration,
+}) => {
+  const start = performance.now();
+  // eslint-disable-next-line no-shadow
+  requestAnimationFrame(function animate(time) {
+    let timeFraction = (time - start) / duration;
+    if (timeFraction > 1) timeFraction = 1;
+
+    const progress = timing(timeFraction);
+    draw(progress); // 绘制
+
+    if (timeFraction < 1) {
+      // eslint-disable-next-line no-unused-vars
+      requestAnimationFrame(animate);
+    }
+  });
+};
+
 export const isIpad = process.browser && navigator.userAgent.match(/ipad/i) != null;
 export const isIos = process.browser && navigator.userAgent.match(/iphone\sos|ios/i) != null;
 export const isMidp = process.browser && navigator.userAgent.match(/midp/i) != null;

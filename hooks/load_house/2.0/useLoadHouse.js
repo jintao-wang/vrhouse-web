@@ -4,17 +4,20 @@ import Resource from '../../../methods/resource';
 import VRHouse from '../../../util/vrHouse';
 
 const useLoadHouse = ({
+  container,
   mainContainer,
+  is3DViewAtStart,
   setViewState,
   setActivePanner,
   setChangingPanorama,
   onLoad,
   onLoaded,
   houseInfo,
+  switch3DToPanoramaCallback,
 }) => {
   const [loadState, setLoadState] = useState('loadStart');
   const currentHotId = useRef(null);
-  const viewDataModel = useRef(null);
+  const [viewDataModel, setViewDataModel] = useState(null);
   const isFirstLoad = useRef(true);
   const activePackageId = useRef(null);
   const vrHouse = useRef(null);
@@ -82,7 +85,7 @@ const useLoadHouse = ({
     const editorData = editDataString;
     const viewerInitConfig = {
       mainContainer,
-      is3DViewAtStart: false,
+      is3DViewAtStart: is3DViewAtStart,
       viewData: viewDataString,
       editorData,
       houseId: vrHouse.current.getHouseId(),
@@ -115,6 +118,10 @@ const useLoadHouse = ({
         if (state === 'animationEnd') {
           setViewState('panorama');
           setActivePanner('3D');
+          container.appendChild(mainContainer);
+          HouseViewer.BaseAPI.changeFloor(false);
+          switch3DToPanoramaCallback();
+          currentHotId.current = hotSpotId;
         }
       },
       switchPanoramaCallback: (state, hotSpotId) => {
@@ -141,7 +148,7 @@ const useLoadHouse = ({
       setLoadState('loadEnd');
       setLoadPercent(0);
       if (onLoaded) onLoaded();
-      viewDataModel.current = ViewDataModel;
+      setViewDataModel(ViewDataModel);
       // eslint-disable-next-line max-len
       currentHotId.current = ViewDataModel.getDefaultHotSpotId();
       activePackageId.current = vrHouse.current.getHouseId();
@@ -172,7 +179,7 @@ const useLoadHouse = ({
   };
 
   // eslint-disable-next-line max-len
-  return [viewDataModel.current, currentHotId.current, loadState, isFirstLoad.current, loadPercent];
+  return [viewDataModel, currentHotId.current, loadState, isFirstLoad.current, loadPercent];
 };
 
 export default useLoadHouse;

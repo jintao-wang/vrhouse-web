@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 const ZTop = ({ children }) => {
-  const container = useRef(document.createElement('div'));
+  const container = useRef(null);
   useEffect(() => {
+    container.current = document.createElement('div');
     document.body.append(container.current);
     return () => {
       ReactDOM.unmountComponentAtNode(container.current);
@@ -12,6 +13,7 @@ const ZTop = ({ children }) => {
     };
   }, []);
 
+  if (!container.current) return null;
   // eslint-disable-next-line react/no-render-return-value
   return ReactDOM.render(children, container.current);
 };

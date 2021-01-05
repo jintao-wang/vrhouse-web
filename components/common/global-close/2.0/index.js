@@ -2,14 +2,17 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 const GlobalClose = ({
-  openListener, onClose, stopPropagation, children,
+  openListener,
+  onClose,
+  stopPropagation,
+  children,
 }) => {
   const aimRef = useRef(null);
 
   useEffect(() => {
     const closeFunc = (e) => {
       if (aimRef.current && aimRef.current.contains(e.target)) return;
-      onClose();
+      onClose(e);
       if (stopPropagation) {
         e.stopPropagation();
         e.cancelBubble = true;
