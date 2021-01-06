@@ -13,6 +13,7 @@ const ContainerSC = styled('div', ['styleSC'])`
   bottom: 0;
   position: fixed;
   background: rgb(68, 68, 68);
+  z-index: 10;
 `;
 
 const VrContainerParentSC = styled('div')`

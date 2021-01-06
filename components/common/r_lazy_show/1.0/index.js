@@ -9,16 +9,15 @@ const ContainerSC = styled('div', ['visible'])`
 const RLazyShow = ({
   children,
   visible,
+  onload,
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        setIsLoaded(true);
-      });
-    }, false);
-  }, []);
+    if (onload && !isLoaded) {
+      setIsLoaded(true);
+    }
+  }, [onload]);
 
   return (
     <ContainerSC visible={visible}>
@@ -30,6 +29,7 @@ const RLazyShow = ({
 RLazyShow.propTypes = {
   children: PropTypes.node.isRequired,
   visible: PropTypes.bool.isRequired,
+  onload: PropTypes.bool.isRequired,
 };
 
 export default RLazyShow;

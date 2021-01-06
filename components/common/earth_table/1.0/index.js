@@ -162,15 +162,12 @@ const EarthTable = ({
   const activePackageObj = useRef(null);
   const rotateAngle = useRef(0);
   const jumpHeight = useRef(0.06);
-  const upPosition = useRef(null);
-  const downPosition = useRef(null);
   const packageDisplayPosition = useRef({});
   const packageDisplayRef = useRef(null);
   const [isPackageDisplay, setPackageDisplay] = useState(false);
   const [loading, setLoading] = useState(false);
   const stopAni = useRef(false);
   const activePackageRef = useRef(activePackage);
-  const jumpVector = useRef(null);
   const loaded = useRef(false);
 
   useEffect(() => {
@@ -195,56 +192,17 @@ const EarthTable = ({
         loaded.current = true;
       }, 1000);
       initial();
-      document.addEventListener('visibilitychange', (e) => {
-        if (document.hidden) {
-          // console.log(1111);
-        } else {
-          activePackageObj.current.position.set(
-            downPosition.current.x,
-            downPosition.current.y,
-            downPosition.current.z,
-          );
-        }
-      }, false);
     }
   }, [visible]);
 
   useEffect(() => {
     activePackageRef.current = activePackage;
-    if (activePackageObj.current) {
-      const earthRadius = isMobile ? 24 : 30;
-      const pos = getPosition(
-        activePackageRef.current.table.position[1] + 90,
-        activePackageRef.current.table.position[0],
-        earthRadius + 2,
-      );
-      jumpVector.current = new THREE.Vector3(pos.x, pos.y, pos.z).normalize();
-      downPosition.current = activePackageObj.current.position;
-      activePackageObj.current.position.set(
-        downPosition.current.x,
-        downPosition.current.y,
-        downPosition.current.z,
-      );
+    for (const item of packageObjs.current) {
+      if (item.additionalData === activePackage) {
+        activePackageObj.current = item;
+      }
     }
-    stopAni.current = false;
   }, [activePackage]);
-
-  // 跳一跳
-  useEffect(() => {
-    if (visible && !loaded.current) {
-      setTimeout(() => {
-        const earthRadius = isMobile ? 24 : 30;
-        const pos = getPosition(
-          activePackageRef.current.table.position[1] + 90,
-          activePackageRef.current.table.position[0],
-          earthRadius + 2,
-        );
-        jumpVector.current = new THREE.Vector3(pos.x, pos.y, pos.z).normalize();
-        downPosition.current = activePackageObj.current.position;
-        // handleJump(true);
-      });
-    }
-  }, [visible]);
 
   // 事件监测
   useEffect(() => {
@@ -273,7 +231,7 @@ const EarthTable = ({
               }
             }
             if (item.object.additionalData) {
-              if (activePackage === item.object.additionalData) {
+              if (activePackageRef.current === item.object.additionalData) {
                 packageDisplayPosition.current.left = event.offsetX;
                 packageDisplayPosition.current.top = event.offsetY;
                 setPackageDisplay(true);
@@ -318,89 +276,6 @@ const EarthTable = ({
     // eslint-disable-next-line max-len,no-param-reassign
     position.y = -((domEvent.clientY - domElement.getBoundingClientRect().top) / domElement.offsetHeight) * 2 + 1;
   };
-
-  const handleJump = function func(isUp) {
-    AnimateJS({
-      duration: 800,
-      // timing: (timeFraction) => 1 - Math.sin(Math.acos(timeFraction)),
-      // eslint-disable-next-line no-restricted-properties
-      timing: (timeFraction) => -Math.pow(timeFraction, 2) + 2 * timeFraction,
-      draw: (progress) => {
-        if (stopAni.current) {
-          upPosition.current = null;
-          activePackageObj.current.position.set(
-            downPosition.current.x,
-            downPosition.current.y,
-            downPosition.current.z,
-          );
-        }
-        if (isUp) {
-          activePackageObj.current.translateOnAxis(
-            jumpVector.current,
-            jumpHeight.current * progress,
-          );
-        } else {
-          activePackageObj.current.translateOnAxis(
-            jumpVector.current,
-            -jumpHeight.current * progress,
-          );
-        }
-        if (progress >= 1) {
-          if (isUp) {
-            if (!upPosition.current) {
-              upPosition.current = activePackageObj.current.position;
-            }
-            activePackageObj.current.position.set(
-              upPosition.current.x,
-              upPosition.current.y,
-              upPosition.current.z,
-            );
-          } else {
-            activePackageObj.current.position.set(
-              downPosition.current.x,
-              downPosition.current.y,
-              downPosition.current.z,
-            );
-          }
-          func(!isUp);
-        }
-      },
-      easeOut: true,
-    });
-  };
-
-  // const PackageDisplayRender = () => (
-  //   <ZTop>
-  //     <GlobalClose
-  //       openListener={isPackageDisplay}
-  //       onClose={(e) => {
-  //         if (!e.target.contains(document.body)) {
-  //           setPackageDisplay(false);
-  //         }
-  //       }}
-  //       stopPropagation={false}
-  //     >
-  //       <PackageDisplayContentSC
-  //         left={packageDisplayPosition.current.left}
-  //         top={packageDisplayPosition.current.top}
-  //       >
-  //         <VrContainerSC
-  //           ref={packageDisplayRef}
-  //         />
-  //         <VrContentSC onClick={() => HouseViewer.BaseAPI.backToPanoramaView()}>
-  //           <div className="point">{activePackage.introduction.index}</div>
-  //           <div className="info">
-  //             {
-  //               activePackage.introduction.info.map((item) => (
-  //                 <div className="line" key={item}>{item}</div>
-  //               ))
-  //             }
-  //           </div>
-  //         </VrContentSC>
-  //       </PackageDisplayContentSC>
-  //     </GlobalClose>
-  //   </ZTop>
-  // );
 
   function makeLabelCanvas(size, name, color) {
     const borderSize = 2;
@@ -699,7 +574,6 @@ const EarthTable = ({
         earthObj.current.earthRadius + 2,
       );
       const jumpVector = new THREE.Vector3(jumpPos.x, jumpPos.y, jumpPos.z).normalize();
-      const upPosition = null;
       const downPosition = { ...obj.position };
 
       const objJumpAni = (isUp) => {

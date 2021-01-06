@@ -168,7 +168,10 @@ const Factory = () => {
       <VRContainerParentSC ref={vrContainerParentSC}>
         <VRContainerSC ref={vrContainerRef} />
       </VRContainerParentSC>
-      <RLazyShow visible={sandTableState}>
+      <RLazyShow
+        visible={sandTableState}
+        onload={loadPercent === 100}
+      >
         <EarthTable
           activePackage={activePackage}
           activeGroup={activeGroup}
@@ -179,7 +182,10 @@ const Factory = () => {
           visible={sandTableState}
         />
       </RLazyShow>
-      <RLazyShow visible={isSceneChange}>
+      <RLazyShow
+        visible={isSceneChange}
+        onload={loadPercent === 100}
+      >
         <SceneChange
           viewDataModel={viewDataModel}
           vrDom={vrContainerRef.current}

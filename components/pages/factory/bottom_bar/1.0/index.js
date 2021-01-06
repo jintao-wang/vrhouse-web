@@ -377,8 +377,8 @@ const BottomBar = ({
           styleSC={style}
           active={activeMenu === 2}
           onClick={() => {
-            HouseViewer.BaseAPI.switchTo3DLargeView();
             onSceneChange();
+            HouseViewer.BaseAPI.switchTo3DLargeView();
           }}
         >
           <div>
