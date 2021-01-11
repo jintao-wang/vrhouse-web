@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import NameConverter from '../../../methods/nameConverter';
-import Resource from '../../../methods/resource';
+import NameConverter from '../../../util/nameConverter';
+import Resource from '../../../util/resource';
 import VRHouse from '../../../util/vrHouse';
 
 const useLoadHouse = ({
@@ -14,6 +14,7 @@ const useLoadHouse = ({
   onLoaded,
   houseInfo,
   switch3DToPanoramaCallback,
+  wxShareInfo,
 }) => {
   const [loadState, setLoadState] = useState('loadStart');
   const currentHotId = useRef(null);
@@ -85,7 +86,7 @@ const useLoadHouse = ({
     const editorData = editDataString;
     const viewerInitConfig = {
       mainContainer,
-      is3DViewAtStart: is3DViewAtStart,
+      is3DViewAtStart,
       viewData: viewDataString,
       editorData,
       houseId: vrHouse.current.getHouseId(),
@@ -155,6 +156,13 @@ const useLoadHouse = ({
       setTimeout(() => {
         isFirstLoad.current = false;
       });
+      import('../../../util/weixinShare')
+        .then((module) => {
+          const wxShowMenu = module.default;
+          wxShowMenu(wxShareInfo);
+        }).catch((err) => {
+          console.error(err);
+        });
     };
     const onError = (err) => {
       console.error(err);
