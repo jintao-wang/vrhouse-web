@@ -1,4 +1,4 @@
-const Resource = {
+export default {
   panoramaLogo: 'textures/panoLogo/pc_compass_empty@3x.png',
   panoramaLogoHasCompanyName: 'textures/panoLogo/pc_compass@3x.png',
   logo_en: 'textures/logo-en.png',
@@ -52,12 +52,13 @@ const Resource = {
   videoAnchor: 'textures/anchor/videoAnchor.png',
   imageAnchor: 'textures/anchor/imageAnchor.png',
   audioAnchor: 'textures/anchor/audioAnchor.png',
+  balloonAnchor: 'textures/anchor/salesOfficeBalloon.png',
   hotSpotOutScene: 'textures/anchor/hotSpotOutScene.png',
+  anchorDetailDefaultImg: 'textures/anchor/defaultAnchorImg.png',
   flyIcon: 'textures/anchor/flyIcon.png',
   arrow: 'textures/editor/arrow.png',
   entranceArrow: 'textures/hotspot/entranceArrow.obj',
   roamArrow: 'textures/roamArrow.png',
+  stairArrow: 'textures/hotspot/stairArrow.png',
   walkingAnimation: 'textures/hotspot/ren.obj',
 };
-
-export default Resource

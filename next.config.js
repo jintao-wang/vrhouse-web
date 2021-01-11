@@ -2,8 +2,8 @@ const isProd = process.env.NODE_ENV === 'production';
 const withImages = require('next-images');
 
 module.exports = withImages({
-  basePath: isProd ? '/next-solution/customer/cheersofa/test' : '',
-  assetPrefix: isProd ? 'https://webresource.123kanfang.com/next-solution/customer/cheersofa/test' : '',
+  basePath: isProd ? '/next-solution/customer/wuhanMax' : '',
+  assetPrefix: isProd ? 'https://webresource.123kanfang.com/next-solution/customer/wuhanMax' : '',
   dynamicAssetPrefix: true,
   inlineImageLimit: 16384,
   webpack(config, options) {
@@ -27,7 +27,7 @@ module.exports = withImages({
     return {
       // '/decoration-node': { page: '/decoration-node' },
       // '/sales-office': { page: '/sales-office' },
-      '/': { page: '/factory' },
+      '/': { page: '/customer/wuhanMax' },
     };
   },
 });
