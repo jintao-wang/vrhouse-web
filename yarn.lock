@@ -4008,6 +4008,11 @@ react-dom@17.0.1:
     object-assign "^4.1.1"
     scheduler "^0.20.1"
 
+react-icomoon@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/react-icomoon/-/react-icomoon-2.2.4.tgz#b24e40665a44b43f4bff24ab80657fd6a5a274ad"
+  integrity sha512-MZtCx0CDmUieUxn40/fCE1ViZ3sVaVyHvIpJtWFl6YZR4MO0ZJ1LismvhCzmQLAVglYS72TCNZfJXoe5p1z72g==
+
 react-is@16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"

@@ -1,7 +1,7 @@
 import React from 'react';
 import CommonHeader from '../../components/common_header';
-import SafeArea from '../../components/common/safe_area';
-import SalesOffice from '../../components/pages/sales_office';
+import SafeArea from '../../components/safe_area';
+import SalesOffice from '../../solutions/sales_office';
 
 const Home = () => (
   <>
