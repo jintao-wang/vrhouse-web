@@ -32,6 +32,7 @@ const useLoadHouse = ({
 
   useEffect(() => {
     if (!mainContainer) return;
+    setLoadPercent(0);
     vrHouse.current = new VRHouse(houseInfo.packageId, houseInfo.domain);
     setLoadState('loadStart');
     // eslint-disable-next-line no-unused-expressions
@@ -119,9 +120,9 @@ const useLoadHouse = ({
         if (state === 'animationEnd') {
           setViewState('panorama');
           setActivePanner('3D');
-          container.appendChild(mainContainer);
           HouseViewer.BaseAPI.changeFloor(false);
-          switch3DToPanoramaCallback();
+          // eslint-disable-next-line no-unused-expressions
+          switch3DToPanoramaCallback && switch3DToPanoramaCallback();
           currentHotId.current = hotSpotId;
         }
       },
@@ -147,7 +148,6 @@ const useLoadHouse = ({
     };
     const onInited = (ViewDataModel) => {
       setLoadState('loadEnd');
-      setLoadPercent(0);
       if (onLoaded) onLoaded();
       setViewDataModel(ViewDataModel);
       // eslint-disable-next-line max-len

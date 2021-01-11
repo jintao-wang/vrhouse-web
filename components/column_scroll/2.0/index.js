@@ -17,6 +17,10 @@ const UlSC = styled('ul')`
   overflow: auto;
   padding: 0;
   margin: 0; 
+  -ms-overflow-style: none;
+  ::-webkit-scrollbar {
+      display: none;
+  }
 `;
 
 const ColumnScroll = ({
