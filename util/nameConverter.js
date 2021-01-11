@@ -1,4 +1,4 @@
-import { getUrlParameter } from '../util/common';
+import { getUrlParameter } from './common';
 
 const langs = ['zh-CN', 'zh-HK', 'zh-TW', 'ja', 'en-US'];
 

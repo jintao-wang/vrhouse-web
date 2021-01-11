@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 const usePlayMusic = ({
   initialState,
   musicSource,
+  isAutoPlay,
 }) => {
   const music = useRef(null);
   const [musicState, setMusicState] = useState(initialState);
@@ -11,12 +12,25 @@ const usePlayMusic = ({
 
   useEffect(() => {
     music.current = new Audio();
-
     music.current.addEventListener('ended', () => {
       if (!musicStateRef.current) return;
       setNextMusic();
       play();
     });
+
+    if (!isAutoPlay) return;
+
+    const autoPlay = () => {
+      document.removeEventListener('touchstart', autoPlay);
+      document.removeEventListener('click', autoPlay);
+      setTimeout(() => {
+        play();
+      }, 300);
+    };
+
+    document.addEventListener('WeixinJSBridgeReady', play);
+    document.addEventListener('touchstart', autoPlay);
+    document.addEventListener('click', autoPlay);
   }, []);
 
   useEffect(() => {
