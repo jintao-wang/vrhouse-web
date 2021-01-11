@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { ColorTheme } from '../../../config';
 import RowScroll from '../../../../../components/rowScroll/2.0';
 import TriangleIcon from '../../triangle_icon/1.0/triangleIcon';
+import GlobalClose from '../../../../../components/global-close/2.0';
 
 const ContainerSC = styled('div')`
   width: 100%;
@@ -80,6 +81,7 @@ const GroupListBar = ({
   group,
   onChange,
   activeIndex,
+  onClose,
 }) => {
   useEffect(() => {
     // console.log(groupList);
@@ -105,15 +107,20 @@ const GroupListBar = ({
   return (
     <ContainerSC>
       <SecondContainerSC visible={visible}>
-        <ContentSC>
-          <RowScroll
-            scrollList={groupList}
-            onChange={onChange}
-            activeIndex={activeIndex}
-          >
-            <ScrollItem group={group} />
-          </RowScroll>
-        </ContentSC>
+        <GlobalClose
+          onClose={onClose}
+          openListener={visible}
+        >
+          <ContentSC>
+            <RowScroll
+              scrollList={groupList}
+              onChange={onChange}
+              activeIndex={activeIndex}
+            >
+              <ScrollItem group={group} />
+            </RowScroll>
+          </ContentSC>
+        </GlobalClose>
         <TriangleIcon left={iconPosition} />
       </SecondContainerSC>
     </ContainerSC>
@@ -127,6 +134,7 @@ GroupListBar.propTypes = {
   group: PropTypes.shape({}),
   onChange: PropTypes.func,
   activeIndex: PropTypes.number,
+  onClose: PropTypes.func,
 };
 
 GroupListBar.defaultProps = {
@@ -136,6 +144,7 @@ GroupListBar.defaultProps = {
   group: {},
   onChange: () => {},
   activeIndex: 0,
+  onClose: () => {},
 };
 
 export default GroupListBar;

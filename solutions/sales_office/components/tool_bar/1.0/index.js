@@ -81,6 +81,13 @@ const ToolBar = ({
     musicSource: activePackage.voice,
   });
 
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    HouseViewer.BaseAPI.onAutoWalkStatusChanged((val) => {
+      setTourActive(val);
+    });
+  }, []);
+
   useEffect(() => () => {
     handlePlayMusic(false);
   }, []);

@@ -199,7 +199,7 @@ const MoreBar = ({
         introductionState && (
           <Introduction
             title={IntroductionInfo.title}
-            content={Introduction.content}
+            content={IntroductionInfo.content}
             onClose={() => setIntroductionState(false)}
           />
         )

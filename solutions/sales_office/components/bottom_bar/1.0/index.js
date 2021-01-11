@@ -330,6 +330,9 @@ const BottomBar = ({
           group={group}
           onChange={handlePackageChange}
           activeIndex={groupOneIndex}
+          onClose={() => {
+            setGroupOneState(false);
+          }}
         />
         {/* groupTwo */}
         <ProjectGroupBar
@@ -339,6 +342,9 @@ const BottomBar = ({
           group={group}
           onChange={handlePackageChange}
           activeIndex={groupTwoIndex}
+          onClose={() => {
+            setGroupTwoState(false);
+          }}
         />
         <ThumbnailBar
           thumbnailState={thumbnailState}
