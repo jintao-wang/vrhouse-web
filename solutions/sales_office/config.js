@@ -1,6 +1,8 @@
 export const BackgroundTheme = (opacity = 0.75) => `rgba(0,0,0, ${opacity})`;
 export const ColorTheme = (opacity = 1) => `rgba(242,170,54, ${opacity})`;
 
+export const Customer = null;
+
 export const PageInfo = {
   title: '虚拟售楼处',
   pageTitle: '楼盘信息',
