@@ -41,8 +41,8 @@ const ContentSC = styled('div')`
 `;
 
 const LogoCenterSC = styled('img')`
-  width: 50px;
-  height: 50px;
+  //width: 50px;
+  height: 40px;
 `;
 
 const LoadPercentSC = styled('div')`
@@ -57,7 +57,7 @@ const GlobalLoading = ({ visible, url, loadPercent }) => (
     <ContainerSC url={url}>
       <ContentSC>
         <LogoCenterSC
-          src="//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/static/common/logo.gif"
+          src="//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/wuhanMax/static/slogan.png"
           alt=""
         />
         <LoadPercentSC>

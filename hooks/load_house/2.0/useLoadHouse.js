@@ -176,7 +176,7 @@ const useLoadHouse = ({
       );
     } else {
       // eslint-disable-next-line no-undef
-      HouseViewer.Resources.init('https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/Solution/', Resource);
+      HouseViewer.Resources.init('https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/wuhanMax/', Resource);
       // eslint-disable-next-line no-undef
       HouseViewer.BaseAPI.initViewer(
         viewerInitConfig,
