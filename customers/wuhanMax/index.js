@@ -106,6 +106,11 @@ const SalesOffice = () => {
       // defaultHotSpot: '8mtLFsyd',
       // defaultRoom: '阳台',
     }),
+    wxShareInfo: {
+      title: 'Max.科技园',
+      desc: '满足科技人才工作生活的全面需求',
+      imgUrl: 'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/wuhanMax/static/weixinShare.png',
+    },
   });
 
   useEffect(() => {
