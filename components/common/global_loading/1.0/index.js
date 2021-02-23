@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Transition from '../../transition/2.0';
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
 
 const ContainerSC = styled('div', ['url', 'aniTrigger'])`
   top: 0;
@@ -57,7 +59,7 @@ const GlobalLoading = ({ visible, url, loadPercent }) => (
     <ContainerSC url={url}>
       <ContentSC>
         <LogoCenterSC
-          src="//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/static/common/logo.gif"
+          src={`${publicRuntimeConfig.ASSET_PREFIX}/static/logo.gif`}
           alt=""
         />
         <LoadPercentSC>

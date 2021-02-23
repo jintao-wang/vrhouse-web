@@ -1,3 +1,7 @@
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
+
 export const PageInfo = {
   title: '虚拟售楼处',
   pageTitle: '楼盘信息',
@@ -25,61 +29,9 @@ export const PageInfo = {
   model3D: '3D模型',
 };
 
-export const TrafficList = [
-  {
-    name: '区域交通1',
-    src: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/traffic/1.jpg',
-    srcBig: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/traffic/1.jpg',
-  },
-  {
-    name: '区域交通2',
-    src: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/traffic/3.jpg',
-    srcBig: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/traffic/3.jpg',
-  },
-  {
-    name: '区域交通3',
-    src: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/traffic/5.jpg',
-    srcBig: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/traffic/5.jpg',
-  },
-];
+export const TrafficList = [];
 
-export const FloorPlanList = [
-  {
-    name: '户型图1',
-    src: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlanSmall/87.png',
-    srcBig: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlan/87.jpg',
-  },
-  {
-    name: '户型图2',
-    src: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlanSmall/98A.png',
-    srcBig: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlan/98A.jpg',
-  },
-  {
-    name: '户型图3',
-    src: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlanSmall/98B.png',
-    srcBig: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlan/98B.jpg',
-  },
-  {
-    name: '户型图4',
-    src: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlanSmall/110A.png',
-    srcBig: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlan/110A.jpg',
-  },
-  {
-    name: '户型图5',
-    src: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlanSmall/110B.png',
-    srcBig: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlan/110B.jpg',
-  },
-  {
-    name: '户型图6',
-    src: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlanSmall/128A.png',
-    srcBig: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlan/128A.jpg',
-  },
-  {
-    name: '户型图7',
-    src: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlanSmall/141.png',
-    srcBig: '//vrhouse-storage.oss-cn-shanghai.aliyuncs.com/customer/midong-wuyue/floorPlan/141.jpg',
-  },
-];
+export const FloorPlanList = [];
 
 export const BuildList = [
   {
@@ -227,31 +179,31 @@ export const Slide3DInfo = [
     content: [
       {
         describe: '',
-        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/1197889998.jpg',
+        url: `${publicRuntimeConfig.ASSET_PREFIX}/static/picture-display/1197889998.jpg`,
       },
       {
         describe: '',
-        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/T6%E8%A5%BF%E4%BE%A7%E5%85%A5%E5%8F%A3%E5%A4%84.jpg',
+        url: `${publicRuntimeConfig.ASSET_PREFIX}/static/picture-display/T6%E8%A5%BF%E4%BE%A7%E5%85%A5%E5%8F%A3%E5%A4%84.jpg`,
       },
       {
         describe: '',
-        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/%E4%B8%9C%E5%8C%97%E7%AB%8B%E9%9D%A2.jpg',
+        url: `${publicRuntimeConfig.ASSET_PREFIX}/static/picture-display/%E4%B8%9C%E5%8C%97%E7%AB%8B%E9%9D%A2.jpg`,
       },
       {
         describe: '',
-        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/%E4%B8%AD%E9%AB%98%E5%8C%BA%E9%98%BF%E9%87%8C%E5%85%A5%E5%8F%A3%E5%8F%8A%E9%80%9A%E5%BE%80%E4%BA%8C%E5%B1%82%E8%B4%AD%E7%89%A9%E4%B8%AD%E5%BF%83%E7%9A%84%E6%A5%BC%E6%A2%AF.jpg',
+        url: `${publicRuntimeConfig.ASSET_PREFIX}/static/picture-display/%E4%B8%AD%E9%AB%98%E5%8C%BA%E9%98%BF%E9%87%8C%E5%85%A5%E5%8F%A3%E5%8F%8A%E9%80%9A%E5%BE%80%E4%BA%8C%E5%B1%82%E8%B4%AD%E7%89%A9%E4%B8%AD%E5%BF%83%E7%9A%84%E6%A5%BC%E6%A2%AF.jpg`,
       },
       {
         describe: '',
-        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/%E5%8D%AB%E7%94%9F%E9%97%B4.jpg',
+        url: `${publicRuntimeConfig.ASSET_PREFIX}/static/picture-display/%E5%8D%AB%E7%94%9F%E9%97%B4.jpg`,
       },
       {
         describe: '',
-        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/%E5%B1%95%E5%8E%85.jpg',
+        url: `${publicRuntimeConfig.ASSET_PREFIX}/static/picture-display/%E5%B1%95%E5%8E%85.jpg`,
       },
       {
         describe: '',
-        url: '//vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/picture-display/%E9%97%B8%E6%9C%BA2.jpg',
+        url: `${publicRuntimeConfig.ASSET_PREFIX}/static/picture-display/%E9%97%B8%E6%9C%BA2.jpg`,
       },
     ],
   },
@@ -324,22 +276,22 @@ export const Slide3DInfo = [
 
 export const IntroductionInfo = {
   title: '欧美金融城',
-  content: '<p>欧美金融城英国中心西楼（EFC T6）是获得美国LEED Gold认证的顶配超甲级写字楼，这座由英国福斯特建筑事务所倾心打造的“皇冠上的明珠”，被称为“东方硅谷当之无愧的新地标”。</p>' +
-    '<p>科技、共享、人文的加持，让这座未来感十足的地标建筑，正在为未来科技城乃至整个杭州开创一个崭新的世界。<p>'+
-  '<p>The Grade A+ office building ‘EFC UK Center West Building’ has obtained LEED Gold certification. This \'jewel in the crown\' designed by Foster & Partners, also known as a new landmark in the ‘Eastern Silicon Valley’, is creating a new world for the Future Sci-tech City CBD and even Hangzhou as a whole.\n' +
-    'W</p>',
+  content: '<p>欧美金融城英国中心西楼（EFC T6）是获得美国LEED Gold认证的顶配超甲级写字楼，这座由英国福斯特建筑事务所倾心打造的“皇冠上的明珠”，被称为“东方硅谷当之无愧的新地标”。</p>'
+    + '<p>科技、共享、人文的加持，让这座未来感十足的地标建筑，正在为未来科技城乃至整个杭州开创一个崭新的世界。<p>'
+  + '<p>The Grade A+ office building ‘EFC UK Center West Building’ has obtained LEED Gold certification. This \'jewel in the crown\' designed by Foster & Partners, also known as a new landmark in the ‘Eastern Silicon Valley’, is creating a new world for the Future Sci-tech City CBD and even Hangzhou as a whole.\n'
+    + 'W</p>',
 };
 
 export const GroupInfo = [
   {
-    name: '外景',
-    defaultPackageId: '0c2c2005-d174-4471-a271-ecdb945698d5',
+    name: '小区介绍',
+    defaultPackageId: 'lyx_8235af79be344eec9c01b5a7441af59a',
     defaultDomain: '//vrhouse.oss-cn-shanghai.aliyuncs.com/',
     defaultPanelShow: false,
   },
   {
-    name: '内景',
-    defaultPackageId: '166ababb-c98d-4e58-a2a4-d25e8a632690_deco_Modern_57',
+    name: '样板间',
+    defaultPackageId: 'lyx_4b8a89f6c653418a8cdb24032d93f4d1',
     defaultDomain: '//vrhouse.oss-cn-shanghai.aliyuncs.com/',
     defaultPanelShow: true,
   },
@@ -348,68 +300,68 @@ export const GroupInfo = [
 export const GroupMap = new Map()
   .set(GroupInfo[0], [
     {
-      packageId: 'lyx_46bbc1085e9f4f0485d1e14182a80a9f',
+      packageId: 'lyx_8235af79be344eec9c01b5a7441af59a',
       packageName: '航拍夜景',
       voice: [
-        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
     },
     {
-      packageId: 'lyx_4c93415ade5a43348cdcece5885627af',
+      packageId: 'lyx_0eb5aebc005e4194a54f57c9683f4032',
       packageName: '航拍日景',
       voice: [
-        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
     },
     {
-      packageId: 'lyx_912baa7f0c15482caac0b086cf74900d',
+      packageId: 'lyx_c7c36dce52b34527876684e275238486',
       packageName: '网红连廊',
       voice: [
-        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
     },
     {
-      packageId: 'lyx_b77d0f9198e94fe9ba07fcdc01222b65',
+      packageId: 'lyx_136098b5716f4096acaf583422cb8ae2',
       packageName: '夜景-1',
       voice: [
-        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
     },
     {
-      packageId: 'lyx_90438eb3060b40a19ba7504087fffa9b',
+      packageId: 'lyx_a905e650f70f4ff4a3a8765827e9fc46',
       packageName: '夜景-2',
       voice: [
-        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
+      ],
+    },
+    {
+      packageId: 'lyx_20de9f5f30074bf39d2100852e1b265f',
+      packageName: '夜景-2',
+      voice: [
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
+      ],
+    },
+    {
+      packageId: 'lyx_cbbe4a171255440f8f117348a62368ac',
+      packageName: '夜景-2',
+      voice: [
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
+      ],
+    },
+    {
+      packageId: 'lyx_b6b799b8fafa4d93b9e2982705a0993d',
+      packageName: '夜景-2',
+      voice: [
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
     },
   ])
   .set(GroupInfo[1], [
     {
-      packageId: 'lyx_a3e8fb5c78e44059939a4b066ae69f29',
+      packageId: 'lyx_4b8a89f6c653418a8cdb24032d93f4d1',
       packageName: '大堂',
       voice: [
-        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
-      ],
-    },
-    {
-      packageId: 'lyx_3e2b533b460048169dbb50eda51f77dc',
-      packageName: '车库',
-      voice: [
-        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
-      ],
-    },
-    {
-      packageId: 'lyx_3cf0455e3c6142caa65348d0d9d182a7',
-      packageName: '八楼电梯间',
-      voice: [
-        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
-      ],
-    },
-    {
-      packageId: 'lyx_6563d302befd470ea47dab6fc3000e83',
-      packageName: '八楼办公区',
-      voice: [
-        'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/voice.mp3',
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
     },
   ]);

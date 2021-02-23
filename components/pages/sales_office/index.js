@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled, { css, keyframes } from 'styled-components';
+import getConfig from 'next/config';
 import Title from '../../common/title/1.0';
 import BottomBar from './bottom_bar/1.0';
 import useLoadHouse from '../../../hooks/load_house/2.0/useLoadHouse';
@@ -13,6 +14,8 @@ import { GroupMap, GroupInfo, RecommendList } from '../../../solution_config/sal
 import Slide3D from '../../common/slide_3d/1.0';
 import Animation from '../../common/animation/2.0';
 import VrCover from '../../common/vr_cover/1.0';
+
+const { publicRuntimeConfig } = getConfig();
 
 const opacityFadeIn = keyframes`
   0% {
@@ -103,7 +106,7 @@ const SalesOffice = () => {
     wxShareInfo: {
       title: '欧美金融城EFC T6',
       desc: 'Foster+Partners，Benoy，Genslen联合打造',
-      imgUrl: 'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/weixinshare.jpeg',
+      imgUrl: `${publicRuntimeConfig.ASSET_PREFIX}/static/weixinshare.jpeg`,
     },
   });
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59 (86127) - https://sketch.com -->
+    <title>最佳视角</title>
+    <desc>Created with Sketch.</desc>
+    <g id="最佳视角" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g stroke="#16D475" stroke-width="2">
+            <path d="M20.8041937,12 C18.0855154,7.9593214 15.155036,6 12,6 C8.844964,6 5.91448459,7.9593214 3.19580634,12 C5.91448459,16.0406786 8.844964,18 12,18 C15.155036,18 18.0855154,16.0406786 20.8041937,12 Z" id="椭圆形"></path>
+            <path d="M13.3671748,9.32892614 C12.9571816,9.11865162 12.4924471,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 C13.6568542,15 15,13.6568542 15,12 C15,11.8172102 14.9836522,11.6382386 14.952339,11.4644676" id="路径" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

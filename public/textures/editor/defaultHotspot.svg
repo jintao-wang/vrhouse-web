@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="18px" viewBox="0 0 40 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 4</title>
+    <defs>
+        <linearGradient x1="100%" y1="60.125%" x2="0%" y2="39.875%" id="linearGradient-1">
+            <stop stop-color="#FFA552" offset="0%"></stop>
+            <stop stop-color="#FF7229" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="1.2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="展示端编辑模式1.2-设置最佳视角" transform="translate(-681.000000, -924.000000)">
+            <g id="编组-3" transform="translate(606.000000, 834.000000)">
+                <g id="编组-2" transform="translate(60.000000, 75.000000)">
+                    <g id="编组-4" transform="translate(15.000000, 15.000000)">
+                        <path d="M3,0 L40,0 L40,0 L40,14 C40,16.209139 38.209139,18 36,18 L0,18 L0,18 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 Z" id="矩形" fill="url(#linearGradient-1)"></path>
+                        <text id="初始" font-family="PingFangSC-Regular, PingFang SC" font-size="11" font-weight="normal" line-spacing="11" fill="#FFFFFF">
+                            <tspan x="9" y="16">初始</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

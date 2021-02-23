@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="49px" height="48px" viewBox="0 0 49 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>位置</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="42.9333333" height="42" rx="21"></rect>
+        <filter x="-8.2%" y="-6.0%" width="116.3%" height="116.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#07A6EF" offset="0%"></stop>
+            <stop stop-color="#34D78B" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="展示端2.3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="展示端2.3-房源视频备份" transform="translate(-82.000000, -169.000000)">
+            <g id="编组-10" transform="translate(28.000000, 67.000000)">
+                <g id="位图" transform="translate(10.000000, 42.000000)">
+                    <g id="屏幕快照-2020-02-07-下午12.36.30" transform="translate(-166.000000, -132.000000)">
+                        <g id="编组-15" transform="translate(211.000000, 193.000000)">
+                            <g id="位置" transform="translate(2.146667, 1.050000)">
+                                <g id="矩形">
+                                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                </g>
+                                <g id="编组-13" transform="translate(10.733333, 8.400000)">
+                                    <path d="M19.3752457,24.5452589 L1.23989622,24.5452589 C0.552724819,24.5452589 4.57589522e-14,24.0045499 4.57589522e-14,23.332317 L4.57589522e-14,23.1277243 C4.57589522e-14,22.4554915 0.552724819,21.9147824 1.23989622,21.9147824 L19.3752457,21.9147824 C20.0624171,21.9147824 20.6151419,22.4554915 20.6151419,23.1277243 L20.6151419,23.332317 C20.6151419,24.0045499 20.0624171,24.5452589 19.3752457,24.5452589 L19.3752457,24.5452589 Z M17.7618868,4.10061087 C20.8890146,8.89879489 18.6283203,12.9906472 15.8049421,15.7818751 C13.872895,17.686535 11.6769342,19.7568174 10.7557262,20.6239004 C10.5067511,20.8577205 10.1133703,20.8577205 9.86439519,20.6239004 C8.94318716,19.7568174 6.74722639,17.686535 4.81517928,15.7818751 C2.95782471,13.9502841 1.34944528,11.5536277 1.34944528,8.76727106 C1.34944528,3.39427921 6.28911213,-0.84858199 11.9657454,0.145153583 C14.3808043,0.564081325 16.437339,2.06929844 17.7618868,4.10061087 L17.7618868,4.10061087 Z" id="形状" fill="url(#linearGradient-3)"></path>
+                                    <path d="M5.82601836,8.76239981 C5.82601836,11.1836866 7.8324778,13.1465273 10.3075709,13.1465273 C12.7826641,13.1465273 14.7891235,11.1836866 14.7891235,8.76239981 C14.7891235,6.34111303 12.7826641,4.37827228 10.3075709,4.37827228 C7.8324778,4.37827228 5.82601836,6.34111303 5.82601836,8.76239981 L5.82601836,8.76239981 Z" id="路径" fill="#F3FEFF" fill-rule="nonzero"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>错误</title>
+    <defs>
+        <filter x="-26.7%" y="-26.7%" width="153.3%" height="153.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="1.2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="展示端编辑模式1.2-再截一张" transform="translate(-58.000000, -60.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="错误-2" transform="translate(58.000000, 60.000000)">
+                <g id="错误" filter="url(#filter-1)" transform="translate(2.000000, 0.000000)">
+                    <path d="M29.1204637,0.630040323 C29.8954133,1.40498992 29.8954133,2.66507056 29.1204637,3.44002016 L3.42741935,29.1330645 C2.65246976,29.9080141 1.39238911,29.9080141 0.617439516,29.1330645 C-0.157510081,28.3581149 -0.157510081,27.0980343 0.617439516,26.3230847 L26.3104839,0.630040323 C27.0854335,-0.144909274 28.3455141,-0.144909274 29.1204637,0.630040323 Z" id="路径"></path>
+                    <path d="M0.617439516,0.630040323 C1.39238911,-0.144909274 2.65246976,-0.144909274 3.42741935,0.630040323 L29.1204637,26.3230847 C29.8954133,27.0980343 29.8954133,28.3581149 29.1204637,29.1330645 C28.3455141,29.9080141 27.0854335,29.9080141 26.3104839,29.1330645 L0.617439516,3.44002016 C-0.157510081,2.66507056 -0.157510081,1.40498992 0.617439516,0.630040323 Z" id="路径"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

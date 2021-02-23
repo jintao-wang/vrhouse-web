@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>编组 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-44.4%" y="-26.7%" width="188.9%" height="153.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="展示端2.0" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="展示端-2d户型" transform="translate(-44.000000, -37.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="编组-14" transform="translate(44.000000, 37.000000)">
+                <g id="编组-15">
+                    <g id="编组-6" filter="url(#filter-1)" transform="translate(3.000000, 0.000000)">
+                        <g id="向下" transform="translate(4.500000, 7.500000) rotate(-270.000000) translate(-4.500000, -7.500000) translate(-3.000000, 3.000000)">
+                            <path d="M7.52498414,8.92649148 C7.33462881,8.92649148 7.14427348,8.82421875 6.95391815,8.6196733 L0.291481599,1.46058239 C-0.0892290609,1.1537642 -0.0892290609,0.540127841 0.291481599,0.233309659 C0.672192259,-0.0735085227 1.14808058,-0.0735085227 1.43361358,0.233309659 L7.52498414,6.7787642 L13.6163547,0.233309659 C13.9018877,-0.0735085227 14.4729537,-0.0735085227 14.7584867,0.233309659 C15.0440197,0.540127841 15.0440197,1.1537642 14.7584867,1.46058239 L8.09605013,8.6196733 C7.9056948,8.82421875 7.71533947,8.92649148 7.52498414,8.92649148 Z" id="路径"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

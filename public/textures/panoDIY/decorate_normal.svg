@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>渲染</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="装修diy-设计家" transform="translate(-262.000000, -610.000000)">
+            <g id="编组" transform="translate(245.000000, 599.000000)">
+                <g id="编组-5" transform="translate(17.000000, 11.000000)">
+                    <g id="渲染">
+                        <circle id="椭圆形" fill="#FFFFFF" cx="7.5" cy="7.5" r="7.5"></circle>
+                        <circle id="椭圆形" fill="#36D988" cx="7.5" cy="9.5" r="2.5"></circle>
+                        <circle id="椭圆形备份" fill="#36D988" cx="11" cy="4" r="1"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

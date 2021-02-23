@@ -1,9 +1,11 @@
-const isProd = process.env.NODE_ENV === 'production';
 const withImages = require('next-images');
 
 module.exports = withImages({
-  basePath: isProd ? '/next-solution/customer/EFC/test' : '',
-  assetPrefix: isProd ? 'https://webresource.123kanfang.com/next-solution/customer/EFC/test' : '',
+  basePath: process.env.BASE_PATH,
+  assetPrefix: process.env.ASSET_PREFIX,
+  publicRuntimeConfig: {
+    ASSET_PREFIX: process.env.ASSET_PREFIX,
+  },
   dynamicAssetPrefix: true,
   inlineImageLimit: 16384,
   webpack(config, options) {

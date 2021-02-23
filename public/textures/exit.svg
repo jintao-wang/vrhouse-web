@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63 (92445) - https://sketch.com -->
+    <title>exit</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-26.7%" y="-26.7%" width="153.3%" height="153.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="展示端2.0" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="展示端-2d户型" transform="translate(-15.000000, -37.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="exit-2" transform="translate(15.000000, 37.000000)">
+                <g id="exit" filter="url(#filter-1)">
+                    <path d="M14.5602319,0.315020161 C14.9477067,0.70249496 14.9477067,1.33253528 14.5602319,1.72001008 L1.71370968,14.5665323 C1.32623488,14.9540071 0.696194556,14.9540071 0.308719758,14.5665323 C-0.0787550403,14.1790575 -0.0787550403,13.5490171 0.308719758,13.1615423 L13.1552419,0.315020161 C13.5427167,-0.0724546371 14.1727571,-0.0724546371 14.5602319,0.315020161 Z" id="路径"></path>
+                    <path d="M0.308719758,0.315020161 C0.696194556,-0.0724546371 1.32623488,-0.0724546371 1.71370968,0.315020161 L14.5602319,13.1615423 C14.9477067,13.5490171 14.9477067,14.1790575 14.5602319,14.5665323 C14.1727571,14.9540071 13.5427167,14.9540071 13.1552419,14.5665323 L0.308719758,1.72001008 C-0.0787550403,1.33253528 -0.0787550403,0.70249496 0.308719758,0.315020161 Z" id="路径"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

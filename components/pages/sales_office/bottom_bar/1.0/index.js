@@ -7,7 +7,6 @@ import Thumbnail from '../../../../../models/thumbnail';
 import { GroupInfo, GroupMap } from '../../../../../solution_config/sales_office/data';
 import ProjectGroupBar from '../../group_list_bar/1.0';
 import MoreBar from '../../more_bar/1.0';
-import GlobalClose from '../../../../common/global-close/2.0';
 
 const fadeIn = keyframes`
   0% {
@@ -380,7 +379,7 @@ const BottomBar = ({
           <div>
             <i className="icon-projectView" />
           </div>
-          <div className="describe">外景</div>
+          <div className="describe">{GroupInfo[1].name}</div>
         </IconSC>
         {/* <IconSC */}
         {/*  styleSC={style} */}
@@ -408,7 +407,7 @@ const BottomBar = ({
           <div>
             <i className="icon-sampleRoom" />
           </div>
-          <div className="describe">内景</div>
+          <div className="describe">{GroupInfo[0].name}</div>
         </IconSC>
         <IconSC
           ref={(e) => iconRef.current[3] = e}

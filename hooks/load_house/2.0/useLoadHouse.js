@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
+import getConfig from 'next/config';
 import NameConverter from '../../../commonJS/nameConverter';
 import Resource from '../../../commonJS/resource';
 import VRHouse from '../../../util/vrHouse';
+import {getUrlParameter} from "../../../util/common";
+
+const { publicRuntimeConfig } = getConfig();
 
 const useLoadHouse = ({
   loadAvailable,
@@ -30,7 +34,7 @@ const useLoadHouse = ({
 
   useEffect(() => {
     if (!loadAvailable) return;
-    vrHouse.current = new VRHouse(houseInfo.packageId, houseInfo.domain);
+    vrHouse.current = new VRHouse(houseInfo.packageId, getUrlParameter('domain') || houseInfo.domain);
     setLoadState('loadStart');
     // eslint-disable-next-line no-unused-expressions
     onLoad && onLoad();
@@ -170,7 +174,7 @@ const useLoadHouse = ({
       );
     } else {
       // eslint-disable-next-line no-undef
-      HouseViewer.Resources.init('https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/', Resource);
+      HouseViewer.Resources.init(`${publicRuntimeConfig.ASSET_PREFIX}/`, Resource);
       // eslint-disable-next-line no-undef
       HouseViewer.BaseAPI.initViewer(
         viewerInitConfig,

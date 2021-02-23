@@ -94,7 +94,9 @@ const RowScroll = ({
       timing: (timeFraction) => timeFraction,
       draw: (progress) => {
         // eslint-disable-next-line max-len
-        ulRef.current.scrollLeft = preScrollLeft + (totalScrollLeft - preScrollLeft) * progress;
+        if (ulRef.current) {
+          ulRef.current.scrollLeft = preScrollLeft + (totalScrollLeft - preScrollLeft) * progress;
+        }
       },
     });
   };
