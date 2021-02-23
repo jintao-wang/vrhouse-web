@@ -7,7 +7,7 @@ const Home = () => (
   <>
     <CommonHeader
       title="欧美金融城EFC"
-      config="https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/config.js"
+      config="/config.js"
     />
     <SalesOffice />
     <SafeArea />
