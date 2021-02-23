@@ -168,6 +168,9 @@ const BottomBar = ({
         const item = getPackage(event.data.anchor.Url);
         setSandTableState(false);
         if (activePackage !== item) {
+          if (event.data.anchor.AimHotSpot) {
+            item.aimHotSpot = event.data.anchor.AimHotSpot;
+          }
           onPackageChange(item);
         }
       }
@@ -244,7 +247,7 @@ const BottomBar = ({
       setThumbnailState('hidden');
     } else {
       // setThumbnailState('prompt');
-      handleThumbnailState('prompt')
+      handleThumbnailState('prompt');
     }
   };
 
