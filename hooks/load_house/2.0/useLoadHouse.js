@@ -3,7 +3,7 @@ import getConfig from 'next/config';
 import NameConverter from '../../../commonJS/nameConverter';
 import Resource from '../../../commonJS/resource';
 import VRHouse from '../../../util/vrHouse';
-import {getUrlParameter} from "../../../util/common";
+import { getUrlParameter } from '../../../util/common';
 
 const { publicRuntimeConfig } = getConfig();
 

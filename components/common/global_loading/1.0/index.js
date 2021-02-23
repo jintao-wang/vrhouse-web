@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import getConfig from 'next/config';
 import Transition from '../../transition/2.0';
-import getConfig from "next/config";
+
 const { publicRuntimeConfig } = getConfig();
 
 const ContainerSC = styled('div', ['url', 'aniTrigger'])`

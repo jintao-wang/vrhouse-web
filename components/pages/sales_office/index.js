@@ -10,10 +10,11 @@ import Panner3D from '../../common/pannel_3d/1.0';
 import PanelChange3D from '../../common/panel_change_3D/1.0';
 import ToolBar from './tool_bar/1.0';
 import { ColorTheme } from '../../../styles/sales-office-icon/common';
-import { GroupMap, GroupInfo, RecommendList } from '../../../solution_config/sales_office/data';
+import { GroupMap, GroupInfo } from '../../../solution_config/sales_office/data';
 import Slide3D from '../../common/slide_3d/1.0';
 import Animation from '../../common/animation/2.0';
 import VrCover from '../../common/vr_cover/1.0';
+import {getUrlParameter} from "../../../util/common";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -78,6 +79,7 @@ const SalesOffice = () => {
   const [sandTableState, setSandTableState] = useState(false);
   const [isSlide3D, setSlide3D] = useState(false);
   const [isFocus, setFocus] = useState(false);
+  const [domain, setDomain] = useState(null);
   const vrContainerRef = useRef(null);
 
   const onLoad = () => {
@@ -112,6 +114,7 @@ const SalesOffice = () => {
 
   useEffect(() => {
     setLoadAvailable(true);
+    setDomain(getUrlParameter('domain'));
   }, []);
 
   const handleTitleChange = (bool) => {
@@ -127,7 +130,7 @@ const SalesOffice = () => {
       {/* /> */}
       <GlobalLoading
         visible={loadState === 'loadStart'}
-        url={`https://${activePackage.domain || activeGroup.defaultDomain}${activePackage.packageId}/CoverImage/Cover.jpg`}
+        url={`https://${domain || activePackage.domain || activeGroup.defaultDomain}${activePackage.packageId}/CoverImage/Cover.jpg`}
         loadPercent={loadPercent}
       />
       {
