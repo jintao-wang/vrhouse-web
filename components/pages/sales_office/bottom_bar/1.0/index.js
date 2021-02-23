@@ -379,7 +379,7 @@ const BottomBar = ({
           <div>
             <i className="icon-projectView" />
           </div>
-          <div className="describe">{GroupInfo[1].name}</div>
+          <div className="describe">{GroupInfo[0].name}</div>
         </IconSC>
         {/* <IconSC */}
         {/*  styleSC={style} */}
@@ -407,7 +407,7 @@ const BottomBar = ({
           <div>
             <i className="icon-sampleRoom" />
           </div>
-          <div className="describe">{GroupInfo[0].name}</div>
+          <div className="describe">{GroupInfo[1].name}</div>
         </IconSC>
         <IconSC
           ref={(e) => iconRef.current[3] = e}
