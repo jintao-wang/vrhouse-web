@@ -284,14 +284,14 @@ export const IntroductionInfo = {
 
 export const GroupInfo = [
   {
-    name: '小区介绍',
-    defaultPackageId: 'lyx_8235af79be344eec9c01b5a7441af59a',
+    name: '外景',
+    defaultPackageId: 'lyx_46bbc1085e9f4f0485d1e14182a80a9f',
     defaultDomain: '//vrhouse.oss-cn-shanghai.aliyuncs.com/',
     defaultPanelShow: false,
   },
   {
-    name: '样板间',
-    defaultPackageId: 'lyx_4b8a89f6c653418a8cdb24032d93f4d1',
+    name: '内景',
+    defaultPackageId: 'lyx_a3e8fb5c78e44059939a4b066ae69f29',
     defaultDomain: '//vrhouse.oss-cn-shanghai.aliyuncs.com/',
     defaultPanelShow: true,
   },
@@ -300,56 +300,35 @@ export const GroupInfo = [
 export const GroupMap = new Map()
   .set(GroupInfo[0], [
     {
-      packageId: 'lyx_8235af79be344eec9c01b5a7441af59a',
+      packageId: 'lyx_46bbc1085e9f4f0485d1e14182a80a9f',
       packageName: '航拍夜景',
       voice: [
         `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
     },
     {
-      packageId: 'lyx_0eb5aebc005e4194a54f57c9683f4032',
+      packageId: 'lyx_4c93415ade5a43348cdcece5885627af',
       packageName: '航拍日景',
       voice: [
         `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
     },
     {
-      packageId: 'lyx_c7c36dce52b34527876684e275238486',
+      packageId: 'lyx_912baa7f0c15482caac0b086cf74900d',
       packageName: '网红连廊',
       voice: [
         `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
     },
     {
-      packageId: 'lyx_136098b5716f4096acaf583422cb8ae2',
+      packageId: 'lyx_b77d0f9198e94fe9ba07fcdc01222b65',
       packageName: '夜景-1',
       voice: [
         `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
     },
     {
-      packageId: 'lyx_a905e650f70f4ff4a3a8765827e9fc46',
-      packageName: '夜景-2',
-      voice: [
-        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
-      ],
-    },
-    {
-      packageId: 'lyx_20de9f5f30074bf39d2100852e1b265f',
-      packageName: '夜景-2',
-      voice: [
-        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
-      ],
-    },
-    {
-      packageId: 'lyx_cbbe4a171255440f8f117348a62368ac',
-      packageName: '夜景-2',
-      voice: [
-        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
-      ],
-    },
-    {
-      packageId: 'lyx_b6b799b8fafa4d93b9e2982705a0993d',
+      packageId: 'lyx_90438eb3060b40a19ba7504087fffa9b',
       packageName: '夜景-2',
       voice: [
         `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
@@ -358,8 +337,29 @@ export const GroupMap = new Map()
   ])
   .set(GroupInfo[1], [
     {
-      packageId: 'lyx_4b8a89f6c653418a8cdb24032d93f4d1',
+      packageId: 'lyx_a3e8fb5c78e44059939a4b066ae69f29',
       packageName: '大堂',
+      voice: [
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
+      ],
+    },
+    {
+      packageId: 'lyx_3e2b533b460048169dbb50eda51f77dc',
+      packageName: '车库',
+      voice: [
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
+      ],
+    },
+    {
+      packageId: 'lyx_3cf0455e3c6142caa65348d0d9d182a7',
+      packageName: '八楼电梯间',
+      voice: [
+        `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
+      ],
+    },
+    {
+      packageId: 'lyx_6563d302befd470ea47dab6fc3000e83',
+      packageName: '八楼办公区',
       voice: [
         `${publicRuntimeConfig.ASSET_PREFIX}/static/voice.mp3`,
       ],
