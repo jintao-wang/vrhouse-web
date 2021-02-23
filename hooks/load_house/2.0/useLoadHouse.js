@@ -64,12 +64,12 @@ const useLoadHouse = ({
           if (viewDataRes.ok) {
             const viewDataJson = await viewDataRes.json();
             if (houseInfo.defaultHotSpot) {
-              viewDataJson.DefaultHotSpotId = houseInfo.defaultHotSpot;
+              editDataString.DefaultHotSpotId = houseInfo.defaultHotSpot;
             } else if (houseInfo.defaultRoom) {
               // eslint-disable-next-line no-restricted-syntax
               for (const item of viewDataJson.HotSpots) {
                 if (item.Name.includes(houseInfo.defaultRoom)) {
-                  viewDataJson.DefaultHotSpotId = item.ID;
+                  editDataString.DefaultHotSpotId = item.ID;
                   break;
                 }
               }

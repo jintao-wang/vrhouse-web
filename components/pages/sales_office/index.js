@@ -102,7 +102,7 @@ const SalesOffice = () => {
     houseInfo: new HouseInfo({
       packageId: activePackage.packageId,
       domain: activePackage.domain || activeGroup.defaultDomain,
-      // defaultHotSpot: '8mtLFsyd',
+      defaultHotSpot: activePackage.aimHotSpot,
       // defaultRoom: '阳台',
     }),
     wxShareInfo: {
