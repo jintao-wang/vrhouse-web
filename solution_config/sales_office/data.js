@@ -4,7 +4,7 @@ const { publicRuntimeConfig } = getConfig();
 
 export const PageInfo = {
   title: '虚拟售楼处',
-  pageTitle: '楼盘信息',
+  pageTitle: '欧美金融城 EFC',
   shareMessage: '已复制该房源链接！',
   viewing: '正在看',
   thumbnailTitle: '全部空间',

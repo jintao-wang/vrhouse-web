@@ -10,11 +10,13 @@ import Panner3D from '../../common/pannel_3d/1.0';
 import PanelChange3D from '../../common/panel_change_3D/1.0';
 import ToolBar from './tool_bar/1.0';
 import { ColorTheme } from '../../../styles/sales-office-icon/common';
-import { GroupMap, GroupInfo } from '../../../solution_config/sales_office/data';
+import {
+  GroupMap, GroupInfo, Slide3DInfo, PageInfo,
+} from '../../../solution_config/sales_office/data';
 import Slide3D from '../../common/slide_3d/1.0';
 import Animation from '../../common/animation/2.0';
 import VrCover from '../../common/vr_cover/1.0';
-import {getUrlParameter} from "../../../util/common";
+import { getUrlParameter } from '../../../util/common';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -170,12 +172,12 @@ const SalesOffice = () => {
           !sandTableState && (
             <>
               <Title
-                titleName="欧美金融城 EFC"
+                titleName={PageInfo.pageTitle}
                 onChange={handleTitleChange}
               />
               <Animation visible={isSlide3D}>
                 <Slide3DSC>
-                  <Slide3D />
+                  <Slide3D slideList={Slide3DInfo} />
                 </Slide3DSC>
               </Animation>
             </>

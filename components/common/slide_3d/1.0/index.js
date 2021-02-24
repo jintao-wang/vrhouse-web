@@ -1,4 +1,6 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react';
+import React, {
+  useState, useEffect, useRef, useCallback,
+} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import TouchCommon from '../../touch_common/TouchCommon';
@@ -10,7 +12,7 @@ import PictureView from '../picture_view/1.0';
 import ZTop from '../../z_top/1.0';
 import Slide2D from '../../slide_2d/1.0';
 import GlobalClose from '../../global-close/2.0';
-import {isMobile} from "../../../../util/common";
+import { isMobile } from '../../../../util/common';
 
 const ContainerSC = styled('div')`
   width: 100vw;
@@ -403,7 +405,7 @@ const Slide3D = ({
           </Carousel>
         </SceneSC>
       </TouchCommon>
-       {
+      {
         viewBigger && (
           <ZTop>
             <PictureViewBigSC>

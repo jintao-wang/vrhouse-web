@@ -1,3 +1,4 @@
+window.ASSET_PREFIX = 'https://webresource.123kanfang.com/next-solution/customer/manhattan';
 window.appConfig = {
   defaultDomain: '//vrhouse-test.oss-cn-shanghai.aliyuncs.com/', // 默认domain
   is3DViewAtStart: false, // true初始为3D;false或不写默认panorama
@@ -38,7 +39,6 @@ window.appConfig = {
   useGivePhoneNumber: 0, // 留电话开关
   useUserImg: 1, // 看房页中头像开关，vr带看中默认开启
   appKey: '0de33fdc111147b5b1f57f8f32ab6856', // 123看房内部key
-  // enableVrTimeout: VRCore.Util.getUrlParameter('enableVrTimeout') == 'false' ? false : true, //vr带看中是否有倒计时
   // authServer: "//test.webapi.123kanfang.com/v2/",  // editor模式下审核服务器地址
   useRoamArrow: 1, // 显示热点转向指示器
   showAllHotSpot: 0, // 显示所有热点
