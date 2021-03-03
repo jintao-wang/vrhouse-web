@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ColumnScroll from '../../column_scroll/2.0';
-import { ColorTheme } from '../../../customers/wuhanMax/config';
+import { ColorTheme } from '../../../project_types/customers/wuhanMax/config';
 
 const ContainerSC = styled('div')`
   margin-bottom: 20px;

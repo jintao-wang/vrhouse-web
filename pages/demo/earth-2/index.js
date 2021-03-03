@@ -26,44 +26,44 @@ export default () => {
     {
       text: 'Asia',
       position: [39.761844, 88.1847639],
-      offset: [0,0],
+      offset: [0, 0],
       rotate: Math.PI - 0.1,
     },
     {
       text: 'Europe',
       position: [49.579691, 18.951754],
-      offset: [0,0],
+      offset: [0, 0],
       // position: [49.579691, 13.951754],
       rotate: 1.2,
     },
     {
       text: 'North America',
       position: [47.018442, -104.844118],
-      offset: [0,0],
+      offset: [0, 0],
       rotate: -0.1,
     },
     {
       text: 'South America',
       position: [-13.180880, -59.286321],
-      offset: [0,0],
+      offset: [0, 0],
       rotate: -0.05,
     },
     {
       text: 'Africa',
       position: [7.164596, 22.394861],
-      offset: [0,0],
+      offset: [0, 0],
       rotate: 0.25,
     },
     {
       text: 'Oceania',
       position: [-23.155060, 134.149481],
-      offset: [0,0],
+      offset: [0, 0],
       rotate: 1,
     },
     {
       text: 'Antarctica',
       position: [-84.651654, 87.712143],
-      offset: [0,0],
+      offset: [0, 0],
       rotate: 0,
     },
   ]);
@@ -71,8 +71,8 @@ export default () => {
     {
       text: '咸阳',
       position: [34.321852, 108.699388],
-      offset: [-1,0],
-      rotate: -Math.PI/2 - 0.55,
+      offset: [-1, 0],
+      rotate: -Math.PI / 2 - 0.55,
       color: 'rgba(255,255,255,.75)',
       flag: {
         color: 'rgb(206,3,20)',
@@ -82,7 +82,7 @@ export default () => {
     {
       text: '重庆',
       position: [29.429592, 106.912673],
-      offset: [-1,0],
+      offset: [-1, 0],
       rotate: -Math.PI / 2 - 0.5,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -93,7 +93,7 @@ export default () => {
     {
       text: '天津',
       position: [39.336896, 117.357230],
-      offset: [-1,0],
+      offset: [-1, 0],
       rotate: -Math.PI / 2 - 0.35,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -104,7 +104,7 @@ export default () => {
     {
       text: '泰州',
       position: [32.464003, 119.924084],
-      offset: [-1,0],
+      offset: [-1, 0],
       rotate: -Math.PI / 2 - 0.1,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -115,7 +115,7 @@ export default () => {
     {
       text: '吴江',
       position: [29.128612, 120.639589],
-      offset: [-1,0],
+      offset: [-1, 0],
       rotate: -Math.PI / 2 + 0.05,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -126,7 +126,7 @@ export default () => {
     {
       text: '惠州',
       position: [24.108112, 114.449786],
-      offset: [-3,0],
+      offset: [-3, 0],
       rotate: -Math.PI / 2 + 0.1,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -137,7 +137,7 @@ export default () => {
     {
       text: '',
       position: [22.770210, 114.479475],
-      offset: [0,0],
+      offset: [0, 0],
       rotate: -Math.PI / 2 + 0.25,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -148,7 +148,7 @@ export default () => {
     {
       text: '越南',
       position: [10.895781, 106.402207],
-      offset: [-2,0],
+      offset: [-2, 0],
       rotate: -Math.PI / 2 + 0.55,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -159,7 +159,7 @@ export default () => {
     {
       text: '爱沙尼亚',
       position: [58.934242, 24.233548],
-      offset: [-1,0],
+      offset: [-1, 0],
       rotate: 1.5,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -170,7 +170,7 @@ export default () => {
     {
       text: '立陶宛',
       position: [56.217551, 22.706468],
-      offset: [-1,8],
+      offset: [-1, 8],
       rotate: 1.45,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -181,8 +181,8 @@ export default () => {
     {
       text: '',
       position: [54.231018, 24.665954],
-      offset: [0,0],
-      rotate: .9,
+      offset: [0, 0],
+      rotate: 0.9,
       color: 'rgba(255,255,255,.75)',
       flag: {
         // color: 'rgb(206,203,50)',
@@ -192,7 +192,7 @@ export default () => {
     {
       text: '波兰',
       position: [53.134621, 18.005243],
-      offset: [-1,0],
+      offset: [-1, 0],
       rotate: 1.3,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -203,7 +203,7 @@ export default () => {
     {
       text: '乌克兰',
       position: [47.290765, 32.720760],
-      offset: [-1,0],
+      offset: [-1, 0],
       rotate: 1.3,
       color: 'rgba(255,255,255,.75)',
       flag: {
@@ -331,7 +331,7 @@ export default () => {
     let earthGroup;
     function initEarthGroup() {
       earthGroup = new THREE.Group();
-      earthGroup.rotateY(-Math.PI - 0.5)
+      earthGroup.rotateY(-Math.PI - 0.5);
       scene.add(earthGroup);
     }
 
@@ -379,7 +379,7 @@ export default () => {
 
     function initContinents() {
       continents.current.forEach((item) => {
-        create2DFont(item.text, item.position, item.rotate, null,item.offset);
+        create2DFont(item.text, item.position, item.rotate, null, item.offset);
       });
     }
 
@@ -479,7 +479,7 @@ export default () => {
         color: marking.flag.color,
         linewidth: 1,
         transparent: true,
-        opacity: .8,
+        opacity: 0.8,
       });
       const wireframe = new THREE.LineSegments(geo, mat);
       cone.add(wireframe);

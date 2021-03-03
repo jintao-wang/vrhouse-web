@@ -1,7 +1,7 @@
 import React from 'react';
 import CommonHeader from '../../../components/common_header';
 import SafeArea from '../../../components/safe_area';
-import Factory from '../../../solutions/factory';
+import Factory from '../../../project_types/solutions/factory';
 
 const Home = () => (
   <>
