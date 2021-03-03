@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
 import Animation from '../../animation/1.0';
-import GlobalClose from '../../global-close/1.0';
+import GlobalClose from '../../global-close/2.0';
 
 const fadeIn = keyframes`
   0% {
@@ -38,7 +38,7 @@ const ContainerSC = styled('div', ['aniTrigger'])`
   bottom: 0;
   left: 0;
   z-index: 1001;
-  background-color: ${(props) => (props.aniTrigger ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0, 0, 0, 0)')};
+  background-color: ${(props) => (props.aniTrigger ? 'rgba(0, 0, 0, 0.75)' : 'rgba(0, 0, 0, 0)')};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +52,6 @@ const ContentSC = styled('div', ['aniTrigger', 'pos'])`
   position: relative;
   animation: ${(props) => fadeCss(props.aniTrigger)};
   transform-origin:  ${(props) => props.pos.x}px ${(props) => props.pos.y}px;
-  margin-top: -150px;
 `;
 
 const Modal = ({
@@ -75,7 +74,10 @@ const Modal = ({
 
   const ModalRender = (trigger, callback) => (
     <ContainerSC aniTrigger={trigger}>
-      <GlobalClose closeHandle={closeFunc}>
+      <GlobalClose
+        openListener={trigger}
+        onClose={closeFunc}
+      >
         <ContentSC
           onAnimationEnd={() => {
             callback();

@@ -1,5 +1,6 @@
 window.ASSET_PREFIX = 'https://webresource.123kanfang.com/next-solution/customer/manhattan';
 window.appConfig = {
+  // AutoWalkWalkSpeed: 1000,
   defaultDomain: '//vrhouse-test.oss-cn-shanghai.aliyuncs.com/', // 默认domain
   is3DViewAtStart: false, // true初始为3D;false或不写默认panorama
   textFontSize2D: '50', // 2D户型图中文字的大小
@@ -14,8 +15,8 @@ window.appConfig = {
   useRoomChange: 1, // 切换房间开关
   useRoomArea: 0, // 面积开关(主页中3D模型中面积、模型全屏中的面积)
   useAIIntroduce: 0, // AI讲房开关
-  panoramaFovRange: [50, 110],
-  panoramaFov: 110,
+  panoramaFovRange: [50, 120],
+  panoramaFov: 120,
 
   useMock: 1, // 目前的作用是，直接读取本地的houseInfo。而不是访问接口。
   kfApiURL: 'https://im-test.123kanfang.com/IM/', // 带看用的云平台服务地址

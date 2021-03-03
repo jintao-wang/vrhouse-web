@@ -11,11 +11,12 @@ import PanelChange3D from '../../common/panel_change_3D/1.0';
 import ToolBar from './tool_bar/1.0';
 import { ColorTheme } from '../../../styles/sales-office-icon/common';
 import {
-  GroupMap, GroupInfo, Slide3DInfo, PageInfo,
+  GroupMap, GroupInfo, PageInfo, WxShareInfo,
 } from '../../../solution_config/sales_office/data';
 import Slide3D from '../../common/slide_3d/1.0';
 import Animation from '../../common/animation/2.0';
 import VrCover from '../../common/vr_cover/1.0';
+import Modal from '../../common/modal/2.0';
 import { getUrlParameter } from '../../../util/common';
 
 const { publicRuntimeConfig } = getConfig();
@@ -62,6 +63,19 @@ const VRContainerSC = styled('div')`
   }
 `;
 
+const VideoAnchorContainer = styled('div', [])`
+  width: 50vw;
+  height: 30vw;
+  max-height: 90vh;
+  background: #000;
+  
+  video {
+    width: 100%;
+    height: 100%;
+    outline: none;
+  }
+`;
+
 const PanoramaContainerSC = styled('div', ['visible'])`
    display: ${(props) => !props.visible && 'none'}
 `;
@@ -82,6 +96,8 @@ const SalesOffice = () => {
   const [isSlide3D, setSlide3D] = useState(false);
   const [isFocus, setFocus] = useState(false);
   const [domain, setDomain] = useState(null);
+  const [isVideoAnchor, setVideoAnchor] = useState(false);
+  const [videoAnchorInfo, setVideoAnchorInfo] = useState(null);
   const vrContainerRef = useRef(null);
 
   const onLoad = () => {
@@ -107,16 +123,21 @@ const SalesOffice = () => {
       defaultHotSpot: activePackage.aimHotSpot,
       // defaultRoom: '阳台',
     }),
-    wxShareInfo: {
-      title: '欧美金融城EFC T6',
-      desc: 'Foster+Partners，Benoy，Genslen联合打造',
-      imgUrl: `${publicRuntimeConfig.ASSET_PREFIX}/static/weixinshare.jpeg`,
-    },
+    wxShareInfo: WxShareInfo,
   });
 
   useEffect(() => {
     setLoadAvailable(true);
     setDomain(getUrlParameter('domain'));
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('anchorNameClicked', (event) => {
+      if (event.data.anchor.ResourceType === 'video') {
+        setVideoAnchorInfo(event.data.anchor);
+        setVideoAnchor(true);
+      }
+    });
   }, []);
 
   const handleTitleChange = (bool) => {
@@ -177,7 +198,7 @@ const SalesOffice = () => {
               />
               <Animation visible={isSlide3D}>
                 <Slide3DSC>
-                  <Slide3D slideList={Slide3DInfo} />
+                  <Slide3D />
                 </Slide3DSC>
               </Animation>
             </>
@@ -219,6 +240,16 @@ const SalesOffice = () => {
         viewState={viewState}
         onChange={setViewState}
       />
+      <Modal
+        display={isVideoAnchor}
+        closeFunc={() => setVideoAnchor(false)}
+      >
+        <VideoAnchorContainer>
+          <video controls>
+            <source src={videoAnchorInfo?.Url} />
+          </video>
+        </VideoAnchorContainer>
+      </Modal>
     </ContainerSC>
   );
 };

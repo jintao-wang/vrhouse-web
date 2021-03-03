@@ -69,9 +69,9 @@ const Panner3D = ({
   };
 
   const infoDisplay = () => {
-    if (hotSpotInfo && hotSpotInfo.Area) {
-      return `${hotSpotInfo.Name}：${hotSpotInfo.Area.toFixed(1)}m²`;
-    }
+    // if (hotSpotInfo && hotSpotInfo.Area) {
+    //   return `${hotSpotInfo.Name}：${hotSpotInfo.Area.toFixed(1)}m²`;
+    // }
     if (hotSpotInfo) {
       return `${hotSpotInfo.Name}`;
     }

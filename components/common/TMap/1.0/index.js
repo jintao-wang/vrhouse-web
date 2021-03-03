@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import getConfig from "next/config";
+
+
+const { publicRuntimeConfig } = getConfig();
 
 const ContainerSC = styled('div')`
   width: 100%;
@@ -76,7 +80,7 @@ const TMapReact = ({
           width: 50,
           height: 50,
           anchor: { x: 16, y: 32 },
-          src: 'https://vrhouse-web.oss-cn-shanghai.aliyuncs.com/next-solution/customer/EFC/static/mapLogo.png',
+          src: `${publicRuntimeConfig.ASSET_PREFIX}/static/mapLogo.png`,
         }),
       },
       geometries: [{ // 点标注数据数组

@@ -10,7 +10,7 @@ const CommonHeader = ({ title, config }) => (
     <meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1,maximum-scale=1,viewport-fit=cover" />
     <title>{title}</title>
     <script src={config} />
-    <link rel="shortcut icon" sizes="196x196" href={`${publicRuntimeConfig.ASSET_PREFIX}/static/logo%4032x32.png`} />
+    <link rel="shortcut icon" sizes="196x196" href={`${publicRuntimeConfig.ASSET_PREFIX}/static/titleIcon.png`} />
     <script src={`${publicRuntimeConfig.ASSET_PREFIX}/sdk/three%40120.min.js`} />
     <script src={`${publicRuntimeConfig.ASSET_PREFIX}/sdk/houseviewer%402020080701.min.js`} />
   </Head>

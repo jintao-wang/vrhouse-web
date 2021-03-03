@@ -7,7 +7,7 @@ import TriangleIcon from '../../triangle_icon/1.0/triangleIcon';
 import { isMobile } from '../../../../../util/common';
 import Introduction from '../../introduction/1.0';
 import TMapReact from '../../../../common/TMap/1.0';
-import { FloorPlanList, IntroductionInfo, TrafficList } from '../../../../../solution_config/sales_office/data';
+import { IntroductionInfo, Slide3DInfo } from '../../../../../solution_config/sales_office/data';
 import ZTop from '../../../../common/z_top/1.0';
 import GlobalClose from '../../../../common/global-close/2.0';
 import Slide2D from '../../../../common/slide_2d/1.0';
@@ -202,7 +202,7 @@ const MoreBar = ({
             <div>
               <i className="icon-phone" />
             </div>
-            <a className="describe" href="tel:0571-86187788">电话</a>
+            <a className="describe" href="tel:0510-85115788">电话</a>
           </IconSC>
         </ContentSC>
         <TriangleIcon left={iconPosition} />
@@ -219,7 +219,11 @@ const MoreBar = ({
       {
         isMap && (
           <TMapSC>
-            <TMapReact showClose onClose={() => setIsMap(false)} />
+            <TMapReact
+              showClose
+              onClose={() => setIsMap(false)}
+              addressPoint={Slide3DInfo[2].content.addressPoint}
+            />
           </TMapSC>
         )
       }

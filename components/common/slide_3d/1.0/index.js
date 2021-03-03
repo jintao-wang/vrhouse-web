@@ -13,6 +13,7 @@ import ZTop from '../../z_top/1.0';
 import Slide2D from '../../slide_2d/1.0';
 import GlobalClose from '../../global-close/2.0';
 import { isMobile } from '../../../../util/common';
+import TMapReact from '../../TMap/1.0';
 
 const ContainerSC = styled('div')`
   width: 100vw;
@@ -134,6 +135,16 @@ const ViewBigItemSC = styled('div', ['url', 'height'])`
   }
 `;
 
+const TMapSC = styled('div')`
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 10000;
+  pointer-events: auto;
+`;
+
 const Slide3D = ({
   slideList,
 }) => {
@@ -148,6 +159,7 @@ const Slide3D = ({
   const isLegalTouch = useRef(true);
   const [viewBigger, setViewBigger] = useState(false);
   const [viewActiveIndex, setViewActiveIndex] = useState(0);
+  const [mapBigger, setMapBigger] = useState(false);
 
   useEffect(() => {
     updateList(activeItem);
@@ -360,6 +372,7 @@ const Slide3D = ({
           <MapInfo
             title={item.content.title}
             addressPoint={item.content.addressPoint}
+            onBigger={() => setMapBigger(true)}
           />
         );
       case 'Management':
@@ -406,6 +419,19 @@ const Slide3D = ({
         </SceneSC>
       </TouchCommon>
       {
+        mapBigger && (
+          <ZTop>
+            <TMapSC>
+              <TMapReact
+                showClose
+                onClose={() => setMapBigger(false)}
+                addressPoint={Slide3DInfo[2].content.addressPoint}
+              />
+            </TMapSC>
+          </ZTop>
+        )
+      }
+      {
         viewBigger && (
           <ZTop>
             <PictureViewBigSC>
@@ -415,7 +441,7 @@ const Slide3D = ({
                 <ViewBigSC height={580}>
                   <Slide2D
                     activeIndex={viewActiveIndex}
-                    slideList={Slide3DInfo[2].content}
+                    slideList={Slide3DInfo[1].content}
                     onChange={(item, index, callback) => {
                       // if (index === viewActiveIndex) return;
                       setViewActiveIndex(index);

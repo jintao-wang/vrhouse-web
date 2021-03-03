@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import TMapReact from "../../../TMap/1.0";
+import TMapReact from '../../../TMap/1.0';
 
 const ContainerSC = styled('div')`
    padding: 0 15px;
@@ -45,15 +45,17 @@ const BigSC = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
+  pointer-events: auto;
   
   img {
     width: 22px;
   }
-`
+`;
 
 const MapInfo = ({
   title,
-  addressPoint
+  addressPoint,
+  onBigger,
 }) => {
   useEffect(() => {}, []);
   return (
@@ -62,7 +64,7 @@ const MapInfo = ({
         title && <TitleSC>{title}</TitleSC>
       }
       <MapContainerSC>
-        <BigSC>
+        <BigSC onClick={onBigger}>
           {/* eslint-disable-next-line jsx-a11y/alt-text,global-require */}
           <img src={require('../../static/img/bigger.svg')} />
         </BigSC>

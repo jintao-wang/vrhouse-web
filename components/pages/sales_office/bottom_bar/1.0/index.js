@@ -288,7 +288,7 @@ const BottomBar = ({
           setGroupOneIndex(activeIndex);
           setGroupTwoIndex(-1);
         } else if (key === GroupInfo[1]) {
-          window.appConfig.panoramaLogoOpacity = 1;
+          window.appConfig.panoramaLogoOpacity = 0;
           // window.appConfig.isOutScene = false;
           setActiveMenu(2);
           setGroupTwoIndex(activeIndex);
@@ -312,7 +312,7 @@ const BottomBar = ({
             setActiveMenu(0);
             setGroupOneIndex(i);
           } else if (groupKey === GroupInfo[1]) {
-            window.appConfig.panoramaLogoOpacity = 1;
+            window.appConfig.panoramaLogoOpacity = 0;
             // window.appConfig.isOutScene = false;
             setActiveMenu(2);
             setGroupTwoIndex(i);
