@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import getConfig from 'next/config';
 import ShowRoom from '../model/show_room';
 import { getUrlParameter, UUID8Bit } from '../../../../../util/common';
 
@@ -7,6 +8,8 @@ import {
   InitialFontParams,
   Initial3dParams,
 } from './initial';
+
+const { publicRuntimeConfig } = getConfig();
 
 export default class ShowRoomControl {
   constructor(scene, camera, renderer, ground) {
@@ -43,7 +46,7 @@ export default class ShowRoomControl {
     this.scene.add(this.showRoomGroup);
 
     const loader = new THREE.FontLoader();
-    loader.load('/static/font/helvetiker_regular.typeface.json', (font) => {
+    loader.load(`${publicRuntimeConfig.ASSET_PREFIX}/static/font/helvetiker_regular.typeface.json`, (font) => {
       this.fontParams.font = font;
     });
 
@@ -132,7 +135,6 @@ export default class ShowRoomControl {
       }
       // eslint-disable-next-line max-len
       const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true, opacity: 0.5 });
-      window.material = material;
       const backPicture = new THREE.Mesh(geometry, material);
       backPicture.position.y -= 10;
       backPicture.rotation.set(-Math.PI / 2, 0, 0);

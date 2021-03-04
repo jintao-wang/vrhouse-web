@@ -136,7 +136,7 @@ export default () => {
       controls.rotateSpeed = 0.1;
       controls.screenSpacePanning = false;
       controls.minDistance = 10;
-      controls.maxDistance = 2000;
+      controls.maxDistance = 3000;
       controls.panSpeed = 1;
 
       controls.enableDamping = true;

@@ -38,7 +38,6 @@ export default class ShowRoom {
     this._showRoom3DParams = {
       ...area.showRoom3DParams,
       yDown3D: 0,
-      height: 300,
     };
 
     this.fontParams = fontParams;
@@ -48,21 +47,22 @@ export default class ShowRoom {
     this.showRoomGroup = showRoomGroup;
     this.showRoom3D = null;
 
-    this.generateShowRoom3D(showRoomGroup, faceIndex);
-    this.create2DFont(this.showRoomNameParams.name, showRoomNameParams.position);
+    this.generateShowRoom3D(showRoomGroup, faceIndex, commonParams);
+    this.create2DFont(this.showRoomNameParams.name, showRoomNameParams.position, commonParams);
   }
 
-  generateShowRoom3D(showRoomGroup, faceIndex) {
+  generateShowRoom3D(showRoomGroup, faceIndex, commonParams) {
     this.showRoom3D = GenerateAdvancedAlien3D({
       showRoom3D: this.showRoom3D,
       _showRoom3DParams: this._showRoom3DParams,
       originPoints: this.points,
       faceIndex,
+      commonParams,
     });
     this.scene.add(this.showRoom3D);
   }
 
-  create2DFont = (text, position) => {
+  create2DFont = (text, position, commonParams) => {
     this.showRoomName?.dispose();
     const shapes = this.fontParams.font.generateShapes(text, 50);
     const geometry = new THREE.ShapeGeometry(shapes);
@@ -73,7 +73,7 @@ export default class ShowRoom {
     this.showRoomName.renderOrder = 1;
     const qua = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 1, 0));
     this.showRoomName.rotation.setFromQuaternion(qua);
-    this.showRoomName.position.set(position[0], position[1] + 200, position[2]);
+    this.showRoomName.position.set(position[0], commonParams.height + 1, position[2]);
     this.scene.add(this.showRoomName);
   }
 }
