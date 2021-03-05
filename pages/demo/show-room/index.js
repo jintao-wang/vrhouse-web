@@ -1,9 +1,12 @@
-import React, { useRef, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useRef, useEffect, useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
 import * as THREE from 'three';
-import {MapControls} from '../../../project_types/demo/show_room/sdk/OrbitControls';
+import { MapControls } from '../../../projects/demo/show_room/sdk/OrbitControls';
 import CommonHeader from '../../../components/common_header';
-import ShowRoomControl from '../../../project_types/demo/show_room/_sdk/controls';
+import ShowRoomControl from '../../../projects/demo/show_room/_sdk/controls';
+import Title from '../../../components/title/2.0';
+import Animation from '../../../components/animation/2.0';
+import Slide3D from '../../../components/slide_3d/1.0';
 
 const ContainerSC = styled('div')`
   position: fixed;
@@ -16,9 +19,39 @@ const ContainerSC = styled('div')`
 const ThreeContainerSC = styled('div')`
   border: none;
   cursor: pointer;
-  width: 100%;
-  height: 100vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   background-color: #EEEEEE;
+`;
+
+const opacityFadeIn = keyframes`
+  0% {
+     opacity: 0;
+  }
+  100% {
+     opacity: 1;
+  }
+`;
+
+const opacityFadeOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
+
+const opacityFadeCss = (aniTrigger) => {
+  if (aniTrigger) return css` ${opacityFadeIn} .2s forwards`;
+  return css` ${opacityFadeOut} .2s forwards`;
+};
+
+const Slide3DSC = styled('div', ['aniTrigger'])`
+  animation: ${(props) => opacityFadeCss(props.aniTrigger)};
 `;
 
 const getPixelRatio = function (context) {
@@ -32,6 +65,7 @@ const getPixelRatio = function (context) {
 };
 
 export default () => {
+  const [isSlide3D, setSlide3D] = useState(false);
   const threeRef = useRef(null);
   useEffect(() => {
     initThree(threeRef.current);
@@ -172,6 +206,58 @@ export default () => {
 
     start();
     createShowRoomControl(scene, camera, renderer, ground);
+    const raycaster = new THREE.Raycaster();
+    const position = new THREE.Vector2();
+    initialEventListener(scene, camera, renderer, raycaster, position);
+  };
+
+  const getMousePosition = (camera, domEvent, domElement, position) => {
+    // eslint-disable-next-line max-len
+    position.x = ((domEvent.clientX - domElement.getBoundingClientRect().left) / domElement.offsetWidth) * 2 - 1;
+    // eslint-disable-next-line max-len
+    position.y = -((domEvent.clientY - domElement.getBoundingClientRect().top) / domElement.offsetHeight) * 2 + 1;
+  };
+
+  const initialEventListener = (scene, camera, renderer, raycaster, position) => {
+    const hoverShowRoom = new Map();
+
+    const onMouseMove = (event) => {
+      getMousePosition(camera, event, renderer.domElement, position);
+      raycaster.setFromCamera(position, camera);
+      const intersects = raycaster.intersectObjects(scene.children, true);
+
+      if (intersects[0]?.object.type !== 'showRoom3D') {
+        for (const showRoom of hoverShowRoom.keys()) {
+          showRoom.material = hoverShowRoom.get(showRoom).originalMaterial;
+          hoverShowRoom.get(showRoom).hoverMaterial.dispose();
+        }
+        hoverShowRoom.clear();
+      }
+
+      if (intersects.length > 0 && intersects[0].object.type === 'showRoom3D') {
+        for (const showRoom of hoverShowRoom.keys()) {
+          showRoom.material = hoverShowRoom.get(showRoom).originalMaterial;
+          hoverShowRoom.get(showRoom).hoverMaterial.dispose();
+        }
+        hoverShowRoom.clear();
+
+        const materialClone = intersects[0].object.material.clone();
+        materialClone.opacity = 0.75;
+
+        if (!hoverShowRoom.has(intersects[0].object)) {
+          hoverShowRoom.set(
+            intersects[0].object,
+            {
+              originalMaterial: intersects[0].object.material,
+              hoverMaterial: materialClone,
+            },
+          );
+        }
+        intersects[0].object.material = materialClone;
+      }
+    };
+
+    threeRef.current.addEventListener('mousemove', onMouseMove, false);
   };
 
   return (
@@ -179,6 +265,15 @@ export default () => {
       <CommonHeader title="展会" />
       <ContainerSC>
         <ThreeContainerSC ref={threeRef} />
+        <Title
+          titleName="上海国际汽车改装博览会"
+          onChange={setSlide3D}
+        />
+        <Animation visible={isSlide3D}>
+          <Slide3DSC>
+            <Slide3D />
+          </Slide3DSC>
+        </Animation>
       </ContainerSC>
     </>
   );

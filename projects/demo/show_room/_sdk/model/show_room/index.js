@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { getUrlParameter } from '../../../../../../util/common';
 
 import {
   GenerateAdvancedAlien3D,
@@ -59,6 +58,7 @@ export default class ShowRoom {
       faceIndex,
       commonParams,
     });
+    this.showRoom3D.type = 'showRoom3D';
     this.scene.add(this.showRoom3D);
   }
 

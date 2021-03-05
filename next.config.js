@@ -18,9 +18,9 @@ module.exports = withImages({
     return config;
   },
   trailingSlash: true,
-  async exportPathMap() {
-    return {
-      '/': { page: process.env.EXPORT_PATH_MAP_HOME },
-    };
-  },
+  // async exportPathMap() {
+  //   return {
+  //     '/': { page: process.env.EXPORT_PATH_MAP_HOME },
+  //   };
+  // },
 });

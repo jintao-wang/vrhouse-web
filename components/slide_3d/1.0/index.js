@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef, useCallback} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import TouchCommon from '../../touch_common/TouchCommon';
-// import { Slide3DInfo } from '../../../../solution_config/sales_office/data';
+import { Slide3DInfo } from '../../../projects/solutions/sales_office/config';
 import Introduction from '../introduction/1.0';
 import VideoIntroduction from '../video_introduction/1.0';
 import MapInfo from '../map_info/1.0';
@@ -431,7 +431,7 @@ Slide3D.propTypes = {
 };
 
 Slide3D.defaultProps = {
-  slideList: [],
+  slideList: Slide3DInfo,
 };
 
 export default Slide3D;
