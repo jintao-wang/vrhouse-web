@@ -7,6 +7,9 @@ import ShowRoomControl from '../../../projects/demo/show_room/_sdk/controls';
 import Title from '../../../components/title/2.0';
 import Animation from '../../../components/animation/2.0';
 import Slide3D from '../../../components/slide_3d/1.0';
+import ShowRoomPanel from '../../../projects/demo/show_room/components/show_room_panel/ShowRoomPanel';
+import RegionPanel from '../../../projects/demo/show_room/components/region_panel/RegionPanel';
+import { getUrlParameter, UUID8Bit } from '../../../tools/common';
 
 const ContainerSC = styled('div')`
   position: fixed;
@@ -54,6 +57,20 @@ const Slide3DSC = styled('div', ['aniTrigger'])`
   animation: ${(props) => opacityFadeCss(props.aniTrigger)};
 `;
 
+const ShowRoomPanelContainerSC = styled.div`
+  width: 240px;
+  position: absolute;
+  right: 30px;
+  top: 50px;
+`;
+
+const RegionPanelContainerSC = styled.div`
+  width: 260px;
+  position: absolute;
+  left: 45px;
+  top: 50px;
+`;
+
 const getPixelRatio = function (context) {
   const backingStore = context.backingStorePixelRatio
         || context.webkitBackingStorePixelRatio
@@ -64,14 +81,39 @@ const getPixelRatio = function (context) {
   return (window.devicePixelRatio || 1) / backingStore;
 };
 
+const bookedMaterial = new THREE.MeshPhongMaterial({
+  color: 'rgb(160,160,160)',
+});
+
 export default () => {
   const [isSlide3D, setSlide3D] = useState(false);
+  const [isShowRoomPanel, setShowRoomPanel] = useState(false);
+  const [regions, setAllRegions] = useState(null);
+  const [showRoomPanelInfo, setShowRoomPanelInfo] = useState({
+    code: null,
+    number: null,
+    size: [],
+    area: null,
+    price: null,
+  });
+  const [isCurrentBooked, setCurrentBooked] = useState(false);
+  const [selectedShowRoomId, setSelectedShowRoom] = useState(null);
+  const selectedShowRoom = useRef(null);
+
   const threeRef = useRef(null);
   useEffect(() => {
-    initThree(threeRef.current);
+    const getShowRoomData = async () => {
+      const packageId = getUrlParameter('packageId');
+      const domain = getUrlParameter('domain');
+      const showRoomDataRes = await fetch(`${domain}${packageId}/ShowRoomData.json?${UUID8Bit()}`);
+      const showRoomData = await showRoomDataRes.json();
+      initThree(threeRef.current, showRoomData);
+      setAllRegions(showRoomData);
+    };
+    getShowRoomData();
   }, []);
 
-  const initThree = (threeDom) => {
+  const initThree = (threeDom, showRoomData) => {
     const width = threeDom.clientWidth;
     const height = threeDom.clientHeight;
     const renderer = createRender();
@@ -170,7 +212,7 @@ export default () => {
       controls.rotateSpeed = 0.1;
       controls.screenSpacePanning = false;
       controls.minDistance = 10;
-      controls.maxDistance = 3000;
+      controls.maxDistance = 4000;
       controls.panSpeed = 1;
 
       controls.enableDamping = true;
@@ -184,15 +226,15 @@ export default () => {
       return controls;
     }
 
-    function createShowRoomControl(scene, camera, renderer, ground) {
-      const showRoomControl = new ShowRoomControl(scene, camera, renderer, ground);
+    function createShowRoomControl(scene, camera, renderer, ground, showRoomData) {
+      const showRoomControl = new ShowRoomControl(scene, camera, renderer, ground, showRoomData);
       return showRoomControl;
     }
 
     function start() {
-      scene.add(ground);
+      // scene.add(ground);
       lights.forEach((light) => scene.add(light));
-      gridHelpers.forEach((gridHelper) => scene.add(gridHelper));
+      // gridHelpers.forEach((gridHelper) => scene.add(gridHelper));
 
       animate();
     }
@@ -205,10 +247,18 @@ export default () => {
     }
 
     start();
-    createShowRoomControl(scene, camera, renderer, ground);
+    createShowRoomControl(scene, camera, renderer, ground, showRoomData);
     const raycaster = new THREE.Raycaster();
     const position = new THREE.Vector2();
     initialEventListener(scene, camera, renderer, raycaster, position);
+    window.addEventListener('resize', onWindowResize);
+
+    function onWindowResize() {
+      camera.aspect = threeDom.clientWidth / threeDom.clientHeight;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(threeDom.clientWidth, threeDom.clientHeight);
+    }
   };
 
   const getMousePosition = (camera, domEvent, domElement, position) => {
@@ -222,11 +272,14 @@ export default () => {
     const hoverShowRoom = new Map();
 
     const onMouseMove = (event) => {
+      if (selectedShowRoom.current) return;
       getMousePosition(camera, event, renderer.domElement, position);
       raycaster.setFromCamera(position, camera);
       const intersects = raycaster.intersectObjects(scene.children, true);
 
-      if (intersects[0]?.object.type !== 'showRoom3D') {
+      if (intersects[0]?.object.booked) return;
+
+      if (intersects[0]?.object.type !== 'showRoom3D' && intersects[0]?.object.type !== 'showRoomName') {
         for (const showRoom of hoverShowRoom.keys()) {
           showRoom.material = hoverShowRoom.get(showRoom).originalMaterial;
           hoverShowRoom.get(showRoom).hoverMaterial.dispose();
@@ -257,7 +310,59 @@ export default () => {
       }
     };
 
+    const onClick = (event) => {
+      getMousePosition(camera, event, renderer.domElement, position);
+      raycaster.setFromCamera(position, camera);
+      const intersects = raycaster.intersectObjects(scene.children, true);
+
+      if (intersects.length > 0 && intersects[0].object.type === 'showRoom3D') {
+        if (selectedShowRoom.current) {
+          selectedShowRoom.current.material.opacity = 1;
+        }
+
+        if (selectedShowRoom.current === intersects[0].object) {
+          // eslint-disable-next-line max-len
+          selectedShowRoom.current.position.set(selectedShowRoom.current.position.x, selectedShowRoom.current.position.y - 150, selectedShowRoom.current.position.z);
+          const textPositionPre = selectedShowRoom.current.text.position;
+          textPositionPre.set(textPositionPre.x, textPositionPre.y - 150, textPositionPre.z);
+          selectedShowRoom.current = null;
+          setSelectedShowRoom(null);
+          setShowRoomPanel(false);
+          return;
+        }
+
+        if (selectedShowRoom.current) {
+          // eslint-disable-next-line max-len
+          selectedShowRoom.current.position.set(selectedShowRoom.current.position.x, selectedShowRoom.current.position.y - 150, selectedShowRoom.current.position.z);
+          const textPositionPre = selectedShowRoom.current.text.position;
+          textPositionPre.set(textPositionPre.x, textPositionPre.y - 150, textPositionPre.z);
+        }
+
+        const materialClone = intersects[0].object.material.clone();
+        materialClone.opacity = 0.75;
+        intersects[0].object.material = materialClone;
+
+        const id = Symbol.for('showRoomId');
+        setSelectedShowRoom(intersects[0].object[id]);
+        setShowRoomPanel(true);
+        setShowRoomPanelInfo(intersects[0].object.displayInfo);
+        setCurrentBooked(intersects[0].object.booked);
+        selectedShowRoom.current = intersects[0].object;
+        // eslint-disable-next-line max-len
+        selectedShowRoom.current.position.set(selectedShowRoom.current.position.x, selectedShowRoom.current.position.y + 150, selectedShowRoom.current.position.z);
+        const textPosition = selectedShowRoom.current.text.position;
+        textPosition.set(textPosition.x, textPosition.y + 150, textPosition.z);
+      }
+    };
+
     threeRef.current.addEventListener('mousemove', onMouseMove, false);
+    threeRef.current.addEventListener('dblclick', onClick, false);
+  };
+
+  const handleBook = () => {
+    selectedShowRoom.current.material = bookedMaterial;
+    selectedShowRoom.current.booked = true;
+    setCurrentBooked(true);
   };
 
   return (
@@ -274,6 +379,23 @@ export default () => {
             <Slide3D />
           </Slide3DSC>
         </Animation>
+        {
+          isShowRoomPanel && (
+            <ShowRoomPanelContainerSC>
+              <ShowRoomPanel
+                showRoomPanelInfo={showRoomPanelInfo}
+                onBook={handleBook}
+                booked={isCurrentBooked}
+              />
+            </ShowRoomPanelContainerSC>
+          )
+        }
+        <RegionPanelContainerSC>
+          <RegionPanel
+            regions={regions}
+            selectedShowRoomId={selectedShowRoomId}
+          />
+        </RegionPanelContainerSC>
       </ContainerSC>
     </>
   );

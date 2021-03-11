@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { GetObjectId } from '../../../util/closures';
-import { AnimateJS } from '../../../util/common';
+import { GetObjectId } from '../../../tools/closures';
+import { AnimateJS } from '../../../tools/common';
 
 const ContainerSC = styled('div')`
   position: relative;

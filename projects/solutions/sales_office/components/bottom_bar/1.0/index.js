@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import PropTypes from 'prop-types';
-import { getUrlParameter, isMobile } from '../../../../../../util/common';
+import { getUrlParameter, isMobile } from '../../../../../../tools/common';
 import ThumbnailBar from '../../thumbnail_bar/1.0';
 import Thumbnail from '../../../../../../models/thumbnail';
 import { GroupInfo, GroupMap } from '../../../config';

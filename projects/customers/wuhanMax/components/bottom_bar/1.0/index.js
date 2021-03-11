@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 import PropTypes from 'prop-types';
 import IcoMoon from 'react-icomoon';
-import { getUrlParameter, isMobile } from '../../../../../../util/common';
+import { getUrlParameter, isMobile } from '../../../../../../tools/common';
 import Thumbnail from '../../../../../../models/thumbnail';
 import { GroupInfo, GroupMap } from '../../../config';
 import ProjectGroupBar from '../../group_list_bar/1.0';

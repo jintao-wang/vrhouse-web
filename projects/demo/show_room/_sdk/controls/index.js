@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import getConfig from 'next/config';
 import ShowRoom from '../model/show_room';
-import { getUrlParameter, UUID8Bit } from '../../../../../util/common';
+import { getUrlParameter, UUID8Bit } from '../../../../../tools/common';
 
 import {
   NewAreas,
@@ -12,7 +12,7 @@ import {
 const { publicRuntimeConfig } = getConfig();
 
 export default class ShowRoomControl {
-  constructor(scene, camera, renderer, ground) {
+  constructor(scene, camera, renderer, ground, showRoomData) {
     this.scene = scene;
     this.camera = camera;
     this.renderer = renderer;
@@ -32,6 +32,8 @@ export default class ShowRoomControl {
       selectColor: '#0163e1',
     });
 
+    this.showRoomData = showRoomData;
+
     // 回调
     this.finishCallback = null;
 
@@ -48,21 +50,17 @@ export default class ShowRoomControl {
     const loader = new THREE.FontLoader();
     loader.load(`${publicRuntimeConfig.ASSET_PREFIX}/static/font/helvetiker_regular.typeface.json`, (font) => {
       this.fontParams.font = font;
+      this.generateAll(this.showRoomData);
     });
-
-    const packageId = getUrlParameter('packageId');
-    const domain = getUrlParameter('domain');
-    const showRoomDataRes = await fetch(`${domain}${packageId}/ShowRoomData.json?${UUID8Bit()}`);
-    this.generateAll(await showRoomDataRes.json());
   }
 
   generateAll(areas) {
-    // eslint-disable-next-line guard-for-in
-    console.log(areas);
+    // eslint-disable-next-line no-restricted-syntax,guard-for-in
     for (const areaId in areas) {
       const area = areas[areaId];
       area.showRoom3DParams = Initial3dParams({ color: area.color });
 
+      // eslint-disable-next-line no-restricted-syntax,guard-for-in
       for (const showRoomId in area.drawElements) {
         const showRoom = area.drawElements[showRoomId];
         this.generateShowRoom(showRoom, area);
@@ -83,6 +81,7 @@ export default class ShowRoomControl {
       faceIndex: showRoom.faceIndex,
       namePosition: showRoom.namePosition,
       showRoomNameParams: showRoom.showRoomNameParams,
+      actualInfo: showRoom.actualInfo,
       points: {
         startPoint: new THREE.Vector3(
           showRoom.points.startPoint.x,

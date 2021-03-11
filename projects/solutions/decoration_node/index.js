@@ -8,7 +8,7 @@ import useInterval from '../../../hooks/useInterval';
 import PanelChange3D from '../../../components/panel_change_3D/1.0';
 import { BackgroundTheme, nodeList } from './config';
 import HouseInfo from '../../../models/houseInfo';
-import { getUrlParameter } from '../../../util/common';
+import { getUrlParameter } from '../../../tools/common';
 import GlobalLoading from '../../../components/global_loading/1.0';
 
 const ContainerSC = styled('div')`

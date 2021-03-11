@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { isMobile } from '../../../../../../util/common';
+import { isMobile } from '../../../../../../tools/common';
 
 const SceneChange = dynamic(() => {
   if (isMobile) return import('../mobile/1.0');

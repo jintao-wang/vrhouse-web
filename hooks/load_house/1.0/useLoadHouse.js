@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import NameConverter from '../../../util/nameConverter';
-import Resource from '../../../util/resource';
-import VRHouse from '../../../util/vrHouse';
+import NameConverter from '../../../tools/nameConverter';
+import Resource from '../../../tools/resource';
+import VRHouse from '../../../tools/vrHouse';
 
 const useLoadHouse = ({
   mainContainer,

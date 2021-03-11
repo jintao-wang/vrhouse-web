@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { getUrlParameter } from '../../../../../../util/common';
+import { getUrlParameter } from '../../../../../../tools/common';
 import { BackgroundTheme } from '../../../../../styles/decoration_node/common';
 import GlobalClose from '../../../../../../components/global-close/2.0';
 

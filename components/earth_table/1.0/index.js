@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import * as THREE from 'three';
 import oc from 'three-orbit-controls';
 import PropTypes from 'prop-types';
-import { isMobile, AnimateJS } from '../../../util/common';
+import { isMobile, AnimateJS } from '../../../tools/common';
 import GlobalClose from '../../global-close/2.0';
 import ZTop from '../../z_top/1.0';
 
