@@ -5,10 +5,12 @@ import PropTypes from 'prop-types';
 const RegionPanel = ({
   regions,
   selectedShowRoomId,
+  bookedShowRoomsId,
+  onView,
 }) => {
   const [openedRegion, setOpenedRegion] = useState(null);
   useEffect(() => {
-    console.log(regions);
+    // console.log(regions);
   }, [regions]);
 
   const handleRegionClick = (region) => {
@@ -17,6 +19,14 @@ const RegionPanel = ({
     } else {
       setOpenedRegion(region);
     }
+  };
+
+  const checkBooked = (_showRoomId) => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const showRoomId of bookedShowRoomsId) {
+      if (_showRoomId === showRoomId) return true;
+    }
+    return false;
   };
 
   return (
@@ -52,9 +62,22 @@ const RegionPanel = ({
                     <RegionInfoSC>
                       {
                         Object.values(region.drawElements).map((showRoom) => (
-                          <ShowRoomInfoSC active={selectedShowRoomId === showRoom.id}>
+                          <ShowRoomInfoSC
+                            active={selectedShowRoomId === showRoom.id}
+                            booked={checkBooked(showRoom.id)}
+                          >
                             <span className="name">{showRoom.showRoomNameParams.name}</span>
-                            <span className="view">查看</span>
+                            <span
+                              className="view"
+                              onClick={() => {
+                                if (checkBooked(showRoom.id)) return;
+                                onView(showRoom.id);
+                              }}
+                            >
+                              {
+                                checkBooked(showRoom.id) ? '已被预定' : '查看'
+                              }
+                            </span>
                           </ShowRoomInfoSC>
                         ))
                       }
@@ -73,7 +96,10 @@ const RegionPanel = ({
 
 RegionPanel.propTypes = {
   regions: PropTypes.shape().isRequired,
+  // eslint-disable-next-line react/require-default-props
   selectedShowRoomId: null || PropTypes.string.isRequired,
+  bookedShowRoomsId: PropTypes.arrayOf.isRequired,
+  onView: PropTypes.func.isRequired,
 };
 
 export default RegionPanel;
@@ -158,7 +184,7 @@ const RegionInfoLineSC = styled.div`
   background: rgba(119, 119, 119, 1);
 `;
 
-const ShowRoomInfoSC = styled('div', 'active')`
+const ShowRoomInfoSC = styled('div', 'active', 'booked')`
   width: 100%;
   height: 30px;
   box-sizing: border-box;
@@ -169,16 +195,18 @@ const ShowRoomInfoSC = styled('div', 'active')`
   font-size: 11px;
 
   .name {
-    color: ${(props) => (props.active ? 'rgba(0,161,252, 0.7)' : 'rgba(255, 255, 255, 0.7)')};
+    color: ${(props) => (props.booked ? 'rgba(204, 204, 204, 0.7)' : props.active ? 'rgba(0,161,252, 0.7)' : 'rgba(255, 255, 255, 0.7)')};
   }
 
   .view {
     width: 48px;
     height: 18px;
     border-radius: 2px;
-    border: 1px solid rgba(0,161,252, 0.7);
-    display: none;
-    color: rgba(0,161,252, 0.7);
+    border: ${(props) => (props.booked ? 'none' : '1px solid rgba(0,161,252, 0.7)')};
+    display: ${(props) => (props.booked ? 'flex' : 'none')};
+    justify-content: center;
+    align-items: center;
+    color: ${(props) => (props.booked ? 'rgba(204, 204, 204, 0.7)' : 'rgba(0,161,252, 0.7)')};
     font-size: 10px;
   }
 
@@ -188,7 +216,5 @@ const ShowRoomInfoSC = styled('div', 'active')`
 
   :hover .view {
     display: flex;
-    justify-content: center;
-    align-items: center;
   }
 `;

@@ -1004,8 +1004,8 @@ const MapControls = function (object, domElement) {
 
   this.screenSpacePanning = false; // pan orthogonal to world-space direction camera.up
 
-  this.mouseButtons.LEFT = MOUSE.ROTATE;
-  this.mouseButtons.RIGHT = MOUSE.PAN;
+  this.mouseButtons.LEFT = MOUSE.PAN;
+  this.mouseButtons.RIGHT = MOUSE.ROTATE;
 
   this.touches.ONE = TOUCH.DOLLY_ROTATE;
   this.touches.TWO = TOUCH.PAN;
